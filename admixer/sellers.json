@@ -1,0 +1,524 @@
+{
+　"contact_address":“Samil Plaza(Building), 14, Dogok-ro 1-gil, Gangnam-gu Seoul, South Korea, 06253”
+    "contact_email": "Mobile Platform1 <mp1@nasmedia.co.kr>",
+    "version": "1.0",
+    "identifiers": [
+        {
+            "name": "TAG-ID",
+            "value": "9b9a441bc66519e9"
+        }
+    ],
+    "sellers": [
+        {
+            "seller_id": "1311",
+            "name": "GothamAds”
+            "domain": "gothamads.com",
+            "seller_type": "INTERMEDIARY"
+　　　　},
+        {
+            "seller_id": "1185",
+            "name": "AdView",
+            "domain": " adview.com",
+            "seller_type": "INTERMEDIARY"
+　　　　},
+        {
+            "seller_id": "1287",
+            "name": "AdView",
+            "domain": " adview.com",
+            "seller_type": "INTERMEDIARY"
+　　　　},
+        {
+            "seller_id": "1552",
+            "name": "Bizzclick",
+            "domain": “bizzclick.com”
+            "seller_type": "INTERMEDIARY"
+　　　　},
+        {
+            "seller_id": "1558",
+            "name": "Bizzclick",
+            "domain": “bizzclick.com”
+            "seller_type": "INTERMEDIARY"
+　　　　},
+        {
+            "seller_id": "1511",
+            "name": "InMobi",
+            "domain": “inmobi.com”
+            "seller_type": "INTERMEDIARY"
+　　　　},
+        {
+            "seller_id": "1511",
+            "name": "InMobi",
+            "domain": “inmobi.com”
+            "seller_type": "INTERMEDIARY"
+　　　　},
+        {
+            "seller_id": "1134",
+            "name": "Manplus",
+            "domain": “mezzomedia.co.kr”
+            "seller_type": "INTERMEDIARY"
+　　　　},
+        {
+            "seller_id": "1297",
+            "name": "Manplus",
+            "domain": “mezzomedia.co.kr”
+            "seller_type": "INTERMEDIARY"
+　　　　},
+        {
+            "seller_id": "1608",
+            "name": "Manplus",
+            "domain": “mezzomedia.co.kr”
+            "seller_type": "INTERMEDIARY"
+　　　　},
+        {
+            "seller_id": "1609",
+            "name": "Manplus",
+            "domain": “mezzomedia.co.kr”
+            "seller_type": "INTERMEDIARY"
+　　　　},
+        {
+            "seller_id": "1252",
+            "name": "aceexchange",
+            "domain": “acexchange.co.kr”
+            "seller_type": "INTERMEDIARY"
+　　　　},
+        {
+            "seller_id": "1538",
+            "name": " SmartyAds",
+            "domain": “smartyads.com”
+            "seller_type": "INTERMEDIARY"
+　　　　},
+        {
+            "seller_id": "1196",
+            "name": "Verve Group Europe GmbH (formerly PubNative GmbH)",
+            "domain": " pubnative.net",
+            "seller_type": "INTERMEDIARY"
+　　　　},
+        {
+            "seller_id": "1631",
+　　　　　　"name": "WaardeX ",
+            "domain": "waardex.com",
+            "seller_type": "INTERMEDIARY"
+　　　　},
+        {
+            "seller_id": "1625",
+            "name": "WaardeX ",
+            "domain": "waardex.com",
+            "seller_type": "INTERMEDIARY"
+　　　　},
+        {
+            "seller_id": "1624",
+            "name": "WaardeX ",
+            "domain": "waardex.com",
+            "seller_type": "INTERMEDIARY"
+　　　　},
+        {
+            "seller_id": "1623",
+　　　　　　"name": "WaardeX ",
+            "domain": "waardex.com",
+            "seller_type": "INTERMEDIARY"
+　　　　},
+        {
+            "seller_id": "1612",
+            "name": "Smaato",
+            "domain": " Smaato.com?",
+            "seller_type": "INTERMEDIARY"
+            
+　　　　},
+        {
+            "seller_id": "1094",
+　　　　　　"name": "Smaato",
+            "domain": " Smaato.com?",
+            "seller_type": "INTERMEDIARY"
+　　　　},
+        {
+            "seller_id": "1289”
+            "name": "Admixer GmbH",
+            "domain": "domain admixer.com",
+            "seller_type": "INTERMEDIARY"
+　　　　},
+        {
+            "seller_id": "1610
+            "name": "Opera”
+            "domain": "opera.com",	
+            "seller_type": "INTERMEDIARY"
+　　　　},
+　　　　{
+            "seller_id": "1522”
+            "name": "Vividad”
+            "domain": "vividad.net",	
+            "seller_type": "INTERMEDIARY"
+　　　　},
+　　　　{
+            "seller_id": "1407”
+            "name": "Adpopcorn”
+            "domain": "adpopcorn.com",	
+            "seller_type": "INTERMEDIARY"
+　　　　},
+　　　　{
+            "seller_id": "1396”
+            "name": "Adpopcorn”
+            "domain": "adpopcorn.com",	
+            "seller_type": "INTERMEDIARY"
+　　　　},
+　　　　{
+            "seller_id": "1164”
+            "name": "Adpopcorn”
+            "domain": "adpopcorn.com",	
+            "seller_type": "INTERMEDIARY"
+　　　　},
+　　　　{
+            "seller_id": "1629”
+            "name": "Algorix”
+            "domain": "algorix.co",	
+            "seller_type": "INTERMEDIARY"
+　　　　},
+　　　　{
+            "seller_id": "1317”
+            "name": "Webeye”
+            "domain": "webeye.com",	
+            "seller_type": "INTERMEDIARY"
+　　　　},
+　　　　{
+            "seller_id": "1606”
+            "name": "Momento”
+            "domain": "cashwalk.com",	
+            "seller_type": "INTERMEDIARY"
+　　　　},
+　　　　{
+            "seller_id": "1602”
+            "name": "Adpie(AdX)”
+            "domain": "adpies.com",	
+            "seller_type": "INTERMEDIARY"
+　　　　},
+　　　　{
+            "seller_id": "1370”
+            "name": "TPMN”
+            "domain": "tpmn.co.kr",	
+            "seller_type": "INTERMEDIARY"
+　　　　},
+　　　　{
+            "seller_id": "1246”
+            "name": "TPMN”
+            "domain": "tpmn.co.kr",	
+            "seller_type": "INTERMEDIARY"
+　　　　},
+　　　　{
+            "seller_id": "1223”
+            "name": "TPMN”
+            "domain": "tpmn.co.kr",	
+            "seller_type": "INTERMEDIARY"
+　　　　},
+　　　　{
+            "seller_id": "1140”
+            "name": "Cauly”
+            "domain": "cauly.net",	
+            "seller_type": "INTERMEDIARY"
+　　　　},
+　　　　{
+            "seller_id": "1564”
+            "name": "enliple”
+            "domain": "enliple.com",	
+            "seller_type": "INTERMEDIARY"
+　　　　},
+　　　　{
+            "seller_id": "1359”
+            "name": "enliple”
+            "domain": "enliple.com",	
+            "seller_type": "INTERMEDIARY"
+　　　　},
+　　　　{
+            "seller_id": "1524”
+            "name": "TnK”
+            "domain": "tnkfactory.com",	
+            "seller_type": "INTERMEDIARY"
+　　　　},
+　　　　{
+            "seller_id": "1385”
+            "name": "Motivintelligence”
+            "domain": "exelbid.com ",	
+            "seller_type": "INTERMEDIARY"
+　　　　},
+　　　　{
+            "seller_id": "1648”
+            "name": "Taipeidigital”
+            "domain": "taipeidigital.com",	
+            "seller_type": "INTERMEDIARY"
+　　　　},
+　　　　{
+            "seller_id": "1378”
+            "name": "Huvle”
+            "domain": "huvlemobile.com",	
+            "seller_type": "INTERMEDIARY"
+　　　　},
+　　　　{
+            "seller_id": "1271”
+            "name": "Admaru”
+            "domain": "admaru.co.kr",	
+            "seller_type": "INTERMEDIARY"
+　　　　},
+　　　　{
+            "seller_id": "852”
+            "name": "Tnear”
+            "domain": "tnear.com",	
+            "seller_type": "INTERMEDIARY"
+　　　　},
+　　　　{
+            "seller_id": "1388”
+            "name": "Buzzvil”
+            "domain": "buzzvil.com",	
+            "seller_type": "INTERMEDIARY"
+　　　　},
+	{
+            "seller_id": "1581"
+            "name": "adhaus”
+            "domain": "adhaus.kr", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "1349"
+            "name": "admake”
+            "domain": "admake.kr", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "1397"
+            "name": "advball”
+            "domain": "advball.co.kr", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "1244"
+            "name": "anytale”
+            "domain": "anytale.com", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "1601"
+            "name": "bobaedream”
+            "domain": "bobaedream.co.kr", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "771"
+            "name": "cbs”
+            "domain": "cbs.co.kr", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "909"
+            "name": "cubewiz”
+            "domain": "cubewiz.co.kr", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "641"
+            "name": "dcinside”
+            "domain": "dcinside.com", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "150"
+            "name": "devsquareen”
+            "domain": "devsquareen.wordpress.com", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "1150"
+            "name": "dhcomms”
+            "domain": "dhcomms.com", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "1527"
+            "name": "dispatch”
+            "domain": "dispatch.co.kr", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "456"
+            "name": "divinemedia”
+            "domain": "divinemedia.co.kr", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "164"
+            "name": "doppelsoft”
+            "domain": "doppelsoft.net", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "1381"
+            "name": "freefi”
+            "domain": "freefi.co.kr", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "394"
+            "name": "funtube”
+            "domain": "funtube.co.kr", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "1088"
+            "name": "hanbom”
+            "domain": "hanbom.com", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "1236"
+            "name": "huvle”
+            "domain": "huvle.com", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "695"
+            "name": "imbc”
+            "domain": "imbc.com", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "354"
+            "name": "jocoos”
+            "domain": "jocoos.com", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "1525"
+            "name": "khan”
+            "domain": "khan.co.kr", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "1324"
+            "name": "kicklive”
+            "domain": "kicklive.net", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "567"
+            "name": "laontree”
+            "domain": "laontree.com", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "243"
+            "name": "m2factory”
+            "domain": "m2factory.kr", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "1351"
+            "name": "metroidsub”
+            "domain": "metroidsub.blogspot.com", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "1269"
+            "name": "moviepre”
+            "domain": "moviepre.co.kr", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "678"
+            "name": "nesting”
+            "domain": "nesting.co.kr", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "1541"
+            "name": "newgentrio”
+            "domain": "newgentrio.com", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "778"
+            "name": "ntouch”
+            "domain": "ntouch.modoo.at", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "1091"
+            "name": "petasecure”
+            "domain": "petasecure.co.kr", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "623"
+            "name": "ricointeractive”
+            "domain": "ricointeractive.com", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "240"
+            "name": "scorecenterlive”
+            "domain": "scorecenterlive.com", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "563"
+            "name": "skylove”
+            "domain": "skylove.com", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "1077"
+            "name": "smavis”
+            "domain": "smavis.com", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "692"
+            "name": "sports2i”
+            "domain": "sports2i.com", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "1328"
+            "name": "step”
+            "domain": "step.com", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "80"
+            "name": "thepinkfongcompany”
+            "domain": "thepinkfongcompany.com", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "1508"
+            "name": "vingle”
+            "domain": "vingle.net", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "361"
+            "name": "voolean”
+            "domain": "voolean.com", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "925"
+            "name": "wafour”
+            "domain": "wafour.com", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "1081"
+            "name": "weblog”
+            "domain": "weblog.youre.space/yoojs8512/", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "124"
+            "name": "wwtgogogo”
+            "domain": "wwtgogogo.cafe24.com", 
+            "seller_type": "PUBLISHER"
+        },
+        {
+            "seller_id": "207"
+            "name": "yna”
+            "domain": "yna.co.kr", 
+            "seller_type": "PUBLISHER"
+　　　　},
+]
+}

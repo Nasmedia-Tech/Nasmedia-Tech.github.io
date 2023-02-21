@@ -5,6 +5,11 @@
   "company_domain": "https://admixer.co.kr/",
   "skadnetwork_ids": [
     {
+      "entity_name": "NASMEDIA Co.LTD",
+      "entity_domain": "https://adpacker.co.kr",
+      "skadnetwork_id": "t6d3zquu66.skadnetwork"
+    },
+    {
       "entity_name": "PubMatic Inc",
       "entity_domain": "pubmatic.com",
       "skadnetwork_id": "k674qkevps.skadnetwork"
@@ -63,6 +68,11 @@
       "entity_name": "Bizzclick",
       "entity_domain": "bizzclick.com",
       "skadnetwork_id": "22mmun2rn5.skadnetwork"
+    },
+    {
+      "entity_name": "Flat-ads",
+      "entity_domain": "flat-ads.com",
+      "skadnetwork_id": "jk2fsx2rgz.skadnetwork"
     }
   ]
 }

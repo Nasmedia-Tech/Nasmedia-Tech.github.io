@@ -5,6 +5,11 @@
     <key>SKAdNetworkItems</key>
     <array>
     <dict>
+        <!-- NASMEDIA Co.LTD -->
+        <key>SKAdNetworkIdentifier</key>
+        <string>t6d3zquu66.skadnetwork</string>
+    </dict>
+    <dict>
         <!-- PubMatic Inc -->
         <key>SKAdNetworkIdentifier</key>
         <string>k674qkevps.skadnetwork</string>
@@ -63,6 +68,11 @@
         <!-- Bizzclick -->
         <key>SKAdNetworkIdentifier</key>
         <string>22mmun2rn5.skadnetwork</string>
+    </dict>
+    <dict>
+        <!-- Flat-ads -->
+        <key>SKAdNetworkIdentifier</key>
+        <string>jk2fsx2rgz.skadnetwork</string>
     </dict>
     </array>
 </dict>

@@ -93,7 +93,7 @@ containerHeight = h
 
 **전용 Ad Unit ID 발급 필수:** 각 사이즈는 파트너 사이트에서 사이즈별로 별도 Ad Unit ID를 발급받아야 합니다. 동일한 Ad Unit ID를 여러 사이즈에 재사용할 수 없습니다.
 
-> NaverAdManager는 360×230, Kakao AdFit은 360×210 사이즈를 해당 어댑터 전용으로 지원합니다.
+> 360×230 / 360×210은 NaverAdManager, Kakao AdFit에서 지원하는 사이즈입니다.
 
 ---
 

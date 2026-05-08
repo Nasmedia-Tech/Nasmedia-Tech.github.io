@@ -24,7 +24,7 @@
       --base-color: #1f2328;
 
       /* 사이드바 */
-      --sidebar-width: 270px;
+      --sidebar-width: 285px;
       --sidebar-background: #ffffff;
       --sidebar-border-color: #e8eaed;
       --sidebar-border-width: 0 1px 0 0;
@@ -80,41 +80,70 @@
     }
 
     /* ── 사이드바 추가 스타일 ── */
+
+    /* 최상위 카테고리 레이블 (시작하기, 지원) */
     .sidebar-nav > ul > li > p,
     .sidebar-nav > ul > li > strong {
-      font-size: 11px !important;
+      font-size: 10.5px !important;
       font-weight: 700 !important;
-      letter-spacing: .7px !important;
+      letter-spacing: .8px !important;
       text-transform: uppercase !important;
-      color: #8c959f !important;
-      padding: 18px 16px 4px !important;
+      color: #adb5bd !important;
+      padding: 20px 16px 5px !important;
       margin: 0 !important;
       display: block;
     }
 
+    /* 모든 링크 공통 */
     .sidebar-nav a {
       border-radius: 6px !important;
       margin: 1px 8px !important;
-      transition: background .1s, color .1s !important;
-      color: #444c56 !important;
+      transition: background .15s, color .15s !important;
+      color: #3d444d !important;
+      font-size: 13.5px !important;
+      line-height: 1.5 !important;
+    }
+    .sidebar-nav a:hover {
+      background: #f3f4f6 !important;
+      color: #1f2328 !important;
     }
 
-    /* 2단계: 개요, 플랫폼 섹션 */
-    .sidebar-nav ul ul a { padding-left: 24px !important; font-size: 13px !important; color: #444c56 !important; }
-    /* 3단계: 실제 페이지 링크 — 회색 제거, 읽기 쉽게 */
-    .sidebar-nav ul ul ul a { padding-left: 38px !important; font-size: 12.5px !important; color: #555e68 !important; }
+    /* 2단계 링크: 개요 등 SDK 섹션 바로 아래 */
+    .sidebar-nav ul ul a {
+      padding-left: 20px !important;
+      font-size: 13.5px !important;
+      color: #3d444d !important;
+    }
 
-    /* 플랫폼 서브헤더 (🤖 Android, 🍎 iOS 등) */
+    /* 3단계 링크: 배너 광고 / 시작하기 등 실제 페이지 */
+    .sidebar-nav ul ul ul a {
+      padding-left: 32px !important;
+      font-size: 13px !important;
+      color: #57606a !important;
+    }
+    .sidebar-nav ul ul ul a:hover {
+      color: #1f2328 !important;
+      background: #f3f4f6 !important;
+    }
+
+    /* 플랫폼 서브헤더 (🤖 Android, 🍎 iOS, ⚛️ React Native 등) */
     .sidebar-nav ul ul li > p,
     .sidebar-nav ul ul li > strong {
-      font-size: 11px !important;
+      font-size: 12px !important;
       font-weight: 700 !important;
-      letter-spacing: .5px !important;
-      color: #444c56 !important;
-      padding: 10px 16px 2px 24px !important;
+      letter-spacing: .2px !important;
+      color: #1f2328 !important;
+      padding: 14px 16px 4px 20px !important;
       margin: 0 !important;
       display: block !important;
       text-transform: none !important;
+      border-top: 1px solid #f0f2f4 !important;
+    }
+    /* 섹션 첫 번째 플랫폼 헤더는 구분선 제거 */
+    .sidebar-nav ul ul li:first-child > p,
+    .sidebar-nav ul ul li:first-child > strong {
+      border-top: none !important;
+      padding-top: 6px !important;
     }
 
     /* ── 코드 블록 ── */

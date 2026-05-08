@@ -8,9 +8,9 @@
 
 SDK 초기화 및 전역 설정을 관리합니다.
 
-### `NapSspAd.initialize(config)`
+### `NapSspAd.initialize(config): Promise<NapSspStatus>`
 
-앱 시작 시 **한 번만** 호출합니다.
+앱 시작 시 **한 번만** 호출합니다. 초기화 성공 여부 및 상태를 담은 Promise를 반환합니다.
 
 ```tsx
 NapSspAd.initialize({

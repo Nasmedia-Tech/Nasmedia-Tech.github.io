@@ -66,7 +66,7 @@
 | `MEDIA_KEY` | Nasmedia에서 발급받은 매체 키 |
 | `AD_UNIT_ID` | 광고 단위 ID (포맷마다 별도) |
 | Android | JDK 17, Android Studio, minSdk 21 이상 |
-| iOS | macOS, Xcode 15.3 이상, iOS 13.0 이상 |
+| iOS | macOS, Xcode 15.3 이상, iOS 14.0 이상 |
 
 ---
 
@@ -194,7 +194,7 @@ JS: window.onNapSspMessage(responseStr)
 **CocoaPods 방식** (`Podfile`):
 
 ```ruby
-platform :ios, '13.0'
+platform :ios, '14.0'
 target 'YourApp' do
   use_frameworks!
   pod 'AdMixerMediation'

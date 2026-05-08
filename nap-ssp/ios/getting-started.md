@@ -143,7 +143,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         PAGSdk.start(with: pagConfig) { isSuccess, error in }
 
         // AppLovin 초기화 (해당 네트워크 사용 시)
-        let sdkKey = "nObIkviLd_FQIkP6yMGsTI7vKdDheVRJfwRkxzH7ie0T2o2slTnPIBcbTRelfXPuwGQcPf2bVGKTtaxtTrR0c9"
+        let sdkKey = "운영팀에서 발급받은 AppLovin SDK Key"
         let alConfig = ALSdkInitializationConfiguration(sdkKey: sdkKey)
         ALSdk.shared().initialize(with: alConfig) { _ in }
 

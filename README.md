@@ -12,7 +12,7 @@ KT Nasmedia의 모바일 광고 SDK 공식 연동 가이드입니다.
 
 | 플랫폼 | 최신 버전 | 최소 OS |
 |--------|----------|--------|
-| Android | 1.0.21 | Android 5.0 (API 21) |
+| Android | 1.0.23 | Android 5.0 (API 21) |
 | iOS | 2.2.1 | iOS 13.0 |
 
 [Android 시작하기 →](nap-ssp/android/getting-started)  

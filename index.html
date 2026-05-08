@@ -96,10 +96,26 @@
       border-radius: 6px !important;
       margin: 1px 8px !important;
       transition: background .1s, color .1s !important;
+      color: #444c56 !important;
     }
 
-    .sidebar-nav ul ul a { padding-left: 28px !important; font-size: 13px !important; }
-    .sidebar-nav ul ul ul a { padding-left: 40px !important; font-size: 12.5px !important; color: #8c959f !important; }
+    /* 2단계: 개요, 플랫폼 섹션 */
+    .sidebar-nav ul ul a { padding-left: 24px !important; font-size: 13px !important; color: #444c56 !important; }
+    /* 3단계: 실제 페이지 링크 — 회색 제거, 읽기 쉽게 */
+    .sidebar-nav ul ul ul a { padding-left: 38px !important; font-size: 12.5px !important; color: #555e68 !important; }
+
+    /* 플랫폼 서브헤더 (🤖 Android, 🍎 iOS 등) */
+    .sidebar-nav ul ul li > p,
+    .sidebar-nav ul ul li > strong {
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      letter-spacing: .5px !important;
+      color: #444c56 !important;
+      padding: 10px 16px 2px 24px !important;
+      margin: 0 !important;
+      display: block !important;
+      text-transform: none !important;
+    }
 
     /* ── 코드 블록 ── */
     .markdown-section pre {

@@ -1,6 +1,6 @@
 # Android - 비즈보드
 
-> KaKao Adfit 비즈보드 연동 가이드입니다.  
+> Kakao Adfit 비즈보드 연동 가이드입니다.  
 > 문의: [nap_adx@nasmedia.co.kr](mailto:nap_adx@nasmedia.co.kr)
 
 ## 비즈보드 지면 정책

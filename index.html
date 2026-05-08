@@ -179,58 +179,55 @@
     /* hr in sidebar */
     .sidebar-nav hr { border: none; border-top: 1px solid #e8eaed; margin: 6px 16px; }
 
-    /* ── SDK 섹션 구분 뱃지 ── */
+    /* ── SDK 섹션 구분 — NAP MX SDK (빨강) ── */
+    .sdk-mx {
+      background: linear-gradient(135deg, rgba(228,36,41,0.06) 0%, rgba(228,36,41,0.02) 100%) !important;
+      border-left: 4px solid #E42429 !important;
+      border-radius: 0 8px 8px 0 !important;
+      margin: 2px 6px 2px 0 !important;
+      padding-bottom: 4px !important;
+    }
     .sdk-mx > p,
     .sdk-mx > strong {
-      color: #b91c1c !important;
-    }
-    .sdk-mx > p::before,
-    .sdk-mx > strong::before {
-      content: '';
-      display: inline-block;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #E42429;
-      margin-right: 6px;
-      vertical-align: middle;
-      position: relative;
-      top: -1px;
+      background: #E42429 !important;
+      color: #ffffff !important;
+      border-radius: 0 6px 6px 0 !important;
+      padding: 6px 14px 6px 12px !important;
+      margin: 0 0 4px -1px !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      letter-spacing: .8px !important;
+      text-transform: uppercase !important;
+      display: block !important;
     }
 
+    /* ── SDK 섹션 구분 — NAP Tracking SDK (파랑) ── */
+    .sdk-tracking {
+      background: linear-gradient(135deg, rgba(3,105,161,0.06) 0%, rgba(3,105,161,0.02) 100%) !important;
+      border-left: 4px solid #0369a1 !important;
+      border-radius: 0 8px 8px 0 !important;
+      margin: 2px 6px 2px 0 !important;
+      padding-bottom: 4px !important;
+    }
     .sdk-tracking > p,
     .sdk-tracking > strong {
-      color: #0369a1 !important;
-    }
-    .sdk-tracking > p::before,
-    .sdk-tracking > strong::before {
-      content: '';
-      display: inline-block;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #0ea5e9;
-      margin-right: 6px;
-      vertical-align: middle;
-      position: relative;
-      top: -1px;
+      background: #0369a1 !important;
+      color: #ffffff !important;
+      border-radius: 0 6px 6px 0 !important;
+      padding: 6px 14px 6px 12px !important;
+      margin: 0 0 4px -1px !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      letter-spacing: .8px !important;
+      text-transform: uppercase !important;
+      display: block !important;
     }
 
-    .sdk-mx .sidebar-nav ul a,
-    .sdk-mx a {
-      --sidebar-nav-link-color--active: #E42429;
-      --sidebar-nav-link-background-color--active: #fff0f0;
-      --sidebar-nav-link-border-color--active: #E42429;
-    }
-    .sdk-tracking .sidebar-nav ul a,
-    .sdk-tracking a {
-      --sidebar-nav-link-color--active: #0369a1 !important;
-    }
-    /* active link 색 오버라이드 for tracking section */
+    /* Tracking 섹션 active 링크 파랑 계열 */
     .sdk-tracking li.active > a {
       color: #0369a1 !important;
-      background: #f0f7ff !important;
-      border-left: 3px solid #0ea5e9 !important;
+      background: #e0f2fe !important;
+      border-left-color: #0369a1 !important;
     }
   </style>
 </head>
@@ -294,10 +291,11 @@
         const nav = document.querySelector('.sidebar-nav');
         if (!nav) return;
         nav.querySelectorAll('li').forEach(function (li) {
-          const label = (li.querySelector('p') || li.querySelector('strong') || li);
+          const label = li.querySelector('p') || li.querySelector('strong');
+          if (!label) return;
           const text = label.textContent.trim();
-          if (text === 'NAP MX SDK') li.classList.add('sdk-mx');
-          if (text === 'NAP Tracking SDK') li.classList.add('sdk-tracking');
+          if (text.includes('NAP MX SDK')) li.classList.add('sdk-mx');
+          else if (text.includes('NAP Tracking SDK')) li.classList.add('sdk-tracking');
         });
       }
 

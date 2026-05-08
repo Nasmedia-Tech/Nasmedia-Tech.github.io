@@ -175,9 +175,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 | Adapter | SDK | 지원 버전 |
 |---------|-----|---------|
-| AdMixerMediationGAM | Google-Mobile-Ads-SDK | 12.7.0 ~ 12.14.0 |
-| AdMixerMediationAdFit | AdFitSDK | 3.14.7 ~ 3.18.6 (최소 iOS 14) |
+| AdMixerMediationGAM | Google-Mobile-Ads-SDK | 12.7.0 ~ 13.3.0 |
+| AdMixerMediationAdFit | AdFitSDK | 3.14.7 ~ 3.18.5 (최소 iOS 14) |
 | AdMixerMediationPangle | Ads-Global | 7.4.0.8 ~ 7.8.8.8 |
+| AdMixerMediationAppLovin | AppLovinSDK | 13.3.1 ~ 13.5.1 |
+| AdMixerMediationUnityAds | UnityAds | 4.15.1 ~ 4.16.5 |
 
 ---
 

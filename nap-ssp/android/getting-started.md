@@ -178,6 +178,8 @@ public class MyApplication extends android.app.Application {
 -keep class com.nasmedia.pangle.** { *; }
 -keep class com.nasmedia.applovin.** { *; }
 -keep class com.nasmedia.unity.** { *; }
+-keep class com.kakao.adfit.** { *; }
+-keep class com.google.android.gms.ads.** { *; }
 ```
 
 ---

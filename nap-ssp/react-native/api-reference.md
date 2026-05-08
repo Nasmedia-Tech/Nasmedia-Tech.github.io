@@ -53,15 +53,19 @@ ATT(App Tracking Transparency) 권한 요청을 수행합니다.
 
 ### BannerSize 상수
 
-| 상수 | 크기 |
-|---|---|
-| `BANNER_320x50` | 320 × 50 |
-| `BANNER_320x100` | 320 × 100 |
-| `BANNER_300x250` | 300 × 250 |
-| `BANNER_320x480` | 320 × 480 |
-| `LARGE_BANNER` | 320 × 100 |
-| `MEDIUM_RECTANGLE` | 300 × 250 |
-| `SMART_BANNER` | 화면 너비 자동 조절 |
+| 상수 | 크기 | 지원 어댑터 |
+|---|---|---|
+| `BANNER_320x50` | 320 × 50 | 공통 |
+| `BANNER_320x100` | 320 × 100 | 공통 |
+| `BANNER_300x250` | 300 × 250 | 공통 |
+| `BANNER_320x480` | 320 × 480 | 공통 |
+| `BANNER_360x230` | 360 × 230 | NaverAdManager (NAM) |
+| `BANNER_360x210` | 360 × 210 | Kakao AdFit |
+| `LARGE_BANNER` | 320 × 100 | 공통 |
+| `MEDIUM_RECTANGLE` | 300 × 250 | 공통 |
+| `SMART_BANNER` | 화면 너비 자동 조절 | 공통 |
+
+> `BANNER_360x230` / `BANNER_360x210`은 해당 어댑터 전용 사이즈입니다. 파트너 사이트에서 해당 사이즈 전용 Ad Unit ID를 별도 발급받아야 합니다.
 
 ---
 

@@ -229,15 +229,19 @@ function MyScreen() {
 }
 ```
 
-| 사이즈 상수 | 크기 |
-|---|---|
-| `BANNER_320x50` | 320 × 50 (기본 배너) |
-| `BANNER_320x100` | 320 × 100 |
-| `BANNER_300x250` | 300 × 250 (중형 직사각형) |
-| `BANNER_320x480` | 320 × 480 |
-| `LARGE_BANNER` | 320 × 100 |
-| `MEDIUM_RECTANGLE` | 300 × 250 |
-| `SMART_BANNER` | 화면 너비에 맞게 자동 조절 |
+| 사이즈 상수 | 크기 | 지원 어댑터 |
+|---|---|---|
+| `BANNER_320x50` | 320 × 50 (기본 배너) | 공통 |
+| `BANNER_320x100` | 320 × 100 | 공통 |
+| `BANNER_300x250` | 300 × 250 (중형 직사각형) | 공통 |
+| `BANNER_320x480` | 320 × 480 | 공통 |
+| `BANNER_360x230` | 360 × 230 | NaverAdManager (NAM) |
+| `BANNER_360x210` | 360 × 210 | Kakao AdFit |
+| `LARGE_BANNER` | 320 × 100 | 공통 |
+| `MEDIUM_RECTANGLE` | 300 × 250 | 공통 |
+| `SMART_BANNER` | 화면 너비에 맞게 자동 조절 | 공통 |
+
+> `BANNER_360x230` / `BANNER_360x210`은 NaverAdManager·Kakao AdFit 전용 사이즈입니다. 해당 어댑터가 미디에이션에 포함되어 있고, 파트너 사이트에서 해당 사이즈 전용 Ad Unit ID를 별도 발급받아야 광고가 노출됩니다.
 
 ---
 

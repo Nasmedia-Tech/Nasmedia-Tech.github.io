@@ -2,6 +2,8 @@
 
 > 문의: [nap_adx@nasmedia.co.kr](mailto:nap_adx@nasmedia.co.kr)
 
+?> **출시 준비 중입니다.** 정식 배포 전 상세 연동 가이드가 이 페이지에 업데이트됩니다. 사전 도입 문의는 운영팀으로 연락주세요.
+
 ## 요구사항
 
 - **최소 OS**: iOS 13.0 이상
@@ -10,108 +12,44 @@
 
 ---
 
-## Step 1. SDK 설치
+## SDK 기능 개요
 
-### SPM (Swift Package Manager)
+| 기능 | 설명 |
+|------|------|
+| 이벤트 트래킹 | 커스텀 이벤트 이름 + 속성(properties) 수집 |
+| 화면 추적 | UIViewController 수명주기 기반 자동 추적 |
+| 사용자 속성 | 사용자 프로필 속성 설정 (`identify`) |
+| 크래시 리포팅 | 앱 크래시 자동 감지 및 전송 |
+| 배치 전송 | 이벤트를 모아 주기적으로 서버 전송 |
 
-**Project > Package Dependencies**에서 추가:
+---
 
+## API 설계 (예정)
+
+### 초기화
+
+```swift
+// AppDelegate didFinishLaunchingWithOptions에서 1회 호출
+NapTracking.initialize(
+    apiKey: "발급받은 API Key"
+    // 상세 옵션은 정식 배포 시 공개
+)
 ```
-https://github.com/Nasmedia-Tech/iOS-Tracking-SPM.git
-```
 
-### CocoaPods
+### 이벤트 트래킹
 
-```ruby
-pod 'NapTracking'
+```swift
+// 커스텀 이벤트
+NapTracking.track(name: "button_click")
+NapTracking.track(name: "purchase", props: ["item_id": "product_123", "price": 9900])
+
+// 화면 전환
+NapTracking.screen(name: "MainScreen")
+
+// 사용자 속성
+NapTracking.identify(attrs: ["user_id": "user_abc", "plan": "premium"])
 ```
 
 ---
 
-## Step 2. SDK 초기화
-
-`AppDelegate.application(_:didFinishLaunchingWithOptions:)`에서 1회 초기화합니다.
-
-```swift
-import GwangyTracking
-
-@main
-class AppDelegate: UIResponder, UIApplicationDelegate {
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
-        let config = TrackingConfig(
-            apiKey: "발급받은 API Key",
-            endpoint: "https://tracking.nasmedia.co.kr/collect",
-            flushInterval: 30_000,        // 이벤트 전송 주기 (ms)
-            debug: false,
-            logLevel: .info,
-            maxBatchSize: 50,
-            enableCrashTracking: true     // 크래시 자동 수집
-        )
-
-        GYTracking.initialize(application: application, config: config)
-
-        return true
-    }
-}
-```
-
----
-
-## Step 3. 이벤트 추적
-
-### 커스텀 이벤트
-
-```swift
-// 이벤트 이름만
-GYTracking.track(name: "button_click")
-
-// 이벤트 + 속성
-GYTracking.track(name: "purchase", props: [
-    "item_id": "product_123",
-    "price": 9900,
-    "currency": "KRW"
-])
-```
-
-### 화면 전환
-
-```swift
-GYTracking.screen(name: "MainScreen")
-
-GYTracking.screen(name: "ProductDetailScreen", properties: [
-    "product_id": "product_123"
-])
-```
-
-### 사용자 속성
-
-```swift
-GYTracking.identify(attrs: [
-    "user_id": "user_abc",
-    "plan": "premium",
-    "age": 28
-])
-```
-
----
-
-## Step 4. 자동 추적
-
-SDK 초기화 시 `enableCrashTracking: true` 설정 시 크래시가 자동 수집됩니다.  
-화면 전환(`UIViewController` 수명주기)도 자동 추적됩니다.
-
----
-
-## 설정 옵션
-
-| 옵션 | 타입 | 기본값 | 설명 |
-|------|------|--------|------|
-| `apiKey` | String | 필수 | 발급받은 API Key |
-| `endpoint` | String | 필수 | 이벤트 수집 서버 URL |
-| `flushInterval` | Int | 30000 | 이벤트 전송 주기 (ms) |
-| `maxBatchSize` | Int | 50 | 배치 최대 이벤트 수 |
-| `enableCrashTracking` | Bool | false | 크래시 자동 수집 여부 |
-| `logLevel` | LogLevel | .info | 로그 레벨 |
-| `debug` | Bool | false | 디버그 모드 |
+!> 위 코드는 예정된 API 설계이며, 실제 패키지명·메서드명은 정식 배포 시 변경될 수 있습니다.

@@ -2,128 +2,62 @@
 
 > 문의: [nap_adx@nasmedia.co.kr](mailto:nap_adx@nasmedia.co.kr)
 
+?> **출시 준비 중입니다.** 정식 배포 전 상세 연동 가이드가 이 페이지에 업데이트됩니다. 사전 도입 문의는 운영팀으로 연락주세요.
+
 ## 요구사항
 
 - **최소 OS**: Android 5.0 (API 21) 이상
-- **언어**: Kotlin
+- **언어**: Kotlin / Java
 
 ---
 
-## Step 1. 의존성 추가
+## SDK 기능 개요
 
-`app/build.gradle.kts`:
-
-```kotlin
-dependencies {
-    implementation("com.nasmedia:nap-tracking-android:1.0.0")
-}
-```
-
----
-
-## Step 2. SDK 초기화
-
-`Application.onCreate()`에서 1회 초기화합니다.
-
-```kotlin
-import com.gwangy.gwangytracking.api.GYTracking
-import com.gwangy.gwangytracking.config.TrackingConfig
-import com.gwangy.gwangytracking.util.LogLevel
-
-class MyApplication : Application() {
-    override fun onCreate() {
-        super.onCreate()
-
-        val config = TrackingConfig(
-            apiKey = "발급받은 API Key",
-            endpoint = "https://tracking.nasmedia.co.kr/collect",
-            flushInterval = 30_000L,      // 이벤트 전송 주기 (ms)
-            maxBatchSize = 50,            // 배치 최대 이벤트 수
-            enableCrashTracking = true,   // 크래시 자동 수집
-            logLevel = LogLevel.INFO,
-            debug = false
-        )
-
-        GYTracking.initialize(this, config)
-    }
-}
-```
+| 기능 | 설명 |
+|------|------|
+| 이벤트 트래킹 | 커스텀 이벤트 이름 + 속성(properties) 수집 |
+| 화면 추적 | 화면 전환 자동/수동 추적 |
+| 사용자 속성 | 사용자 프로필 속성 설정 (`identify`) |
+| 크래시 리포팅 | 앱 크래시 자동 감지 및 전송 |
+| 클릭 자동 추적 | View 계층 기반 클릭 이벤트 자동 수집 |
+| 배치 전송 | 이벤트를 모아 주기적으로 서버 전송 |
 
 ---
 
-## Step 3. 이벤트 추적
+## API 설계 (예정)
 
-### 커스텀 이벤트
+### 초기화
 
 ```kotlin
-// 이벤트 이름만
-GYTracking.track("button_click")
-
-// 이벤트 + 속성
-GYTracking.track("purchase", mapOf(
-    "item_id" to "product_123",
-    "price" to 9900,
-    "currency" to "KRW"
-))
+// Application.onCreate()에서 1회 호출
+NapTracking.initialize(
+    context = this,
+    apiKey = "발급받은 API Key",
+    // 상세 옵션은 정식 배포 시 공개
+)
 ```
 
-### 화면 전환
+### 이벤트 트래킹
 
 ```kotlin
-GYTracking.screen("MainScreen")
+// 커스텀 이벤트
+NapTracking.track("button_click")
+NapTracking.track("purchase", mapOf("item_id" to "product_123", "price" to 9900))
 
-GYTracking.screen("ProductDetailScreen", mapOf(
-    "product_id" to "product_123"
-))
+// 화면 전환
+NapTracking.screen("MainScreen")
+
+// 사용자 속성
+NapTracking.identify(mapOf("user_id" to "user_abc", "plan" to "premium"))
 ```
 
-### 사용자 속성
+### 클릭 자동 추적
 
 ```kotlin
-GYTracking.identify(mapOf(
-    "user_id" to "user_abc",
-    "plan" to "premium",
-    "age" to 28
-))
+// Activity rootView 전달 시 자동 수집
+NapTracking.enableClickTracking(window.decorView.rootView)
 ```
 
 ---
 
-## Step 4. 클릭 자동 추적
-
-Activity 또는 Fragment의 rootView를 전달합니다.
-
-```kotlin
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        // rootView의 모든 클릭 이벤트 자동 수집
-        GYTracking.enableClickTracking(window.decorView.rootView)
-    }
-}
-```
-
----
-
-## 설정 옵션
-
-| 옵션 | 타입 | 기본값 | 설명 |
-|------|------|--------|------|
-| `apiKey` | String | 필수 | 발급받은 API Key |
-| `endpoint` | String | 필수 | 이벤트 수집 서버 URL |
-| `flushInterval` | Long | 30000 | 이벤트 전송 주기 (ms) |
-| `maxBatchSize` | Int | 50 | 배치 최대 이벤트 수 |
-| `enableCrashTracking` | Boolean | false | 크래시 자동 수집 여부 |
-| `logLevel` | LogLevel | INFO | 로그 레벨 (VERBOSE/DEBUG/INFO/WARN/ERROR) |
-| `debug` | Boolean | false | 디버그 모드 |
-
----
-
-## ProGuard 설정
-
-```proguard
--keep class com.gwangy.gwangytracking.** { *; }
--keep class com.nasmedia.tracking.** { *; }
-```
+!> 위 코드는 예정된 API 설계이며, 실제 패키지명·메서드명은 정식 배포 시 변경될 수 있습니다.

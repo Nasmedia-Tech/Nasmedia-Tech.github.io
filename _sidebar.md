@@ -22,7 +22,7 @@
 
 ---
 
-- **NAP Tracking SDK**
+- **NAP Tracking SDK** *(출시 예정)*
   - [개요](nap-tracking/)
   - **Android**
     - [시작하기](nap-tracking/android/getting-started)
@@ -32,5 +32,5 @@
 ---
 
 - **지원**
-  - [문의하기](mailto:nap_adx@nasmedia.co.kr)
-  - [파트너 사이트](https://publisher.admixer.co.kr/signin)
+  - [파트너 사이트 →](https://publisher.admixer.co.kr/signin)
+  - [운영팀 문의 →](mailto:nap_adx@nasmedia.co.kr)

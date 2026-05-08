@@ -6,7 +6,7 @@ KT Nasmedia의 모바일 광고 SDK 공식 연동 가이드입니다.
 
 ## SDK 소개
 
-### NAP SSP SDK
+### NAP MX SDK
 
 앱에 광고를 노출하기 위한 미디에이션 SDK입니다. 배너, 전면, 네이티브, 리워드 동영상 등 다양한 광고 포맷과 Google, Kakao Adfit, Pangle, AppLovin, Unity Ads 등 주요 네트워크 미디에이션을 지원합니다.
 

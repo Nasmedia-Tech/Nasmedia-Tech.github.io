@@ -3,7 +3,7 @@
 
 ---
 
-- **NAP SSP SDK**
+- **NAP MX SDK**
   - [개요](nap-ssp/)
   - **Android**
     - [시작하기](nap-ssp/android/getting-started)

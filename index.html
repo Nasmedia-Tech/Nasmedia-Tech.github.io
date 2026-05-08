@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>KT Nasmedia SDK Docs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="KT Nasmedia NAP SSP SDK · NAP Tracking SDK 공식 연동 가이드">
+  <meta name="description" content="KT Nasmedia NAP MX SDK · NAP Tracking SDK 공식 연동 가이드">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -178,6 +178,60 @@
 
     /* hr in sidebar */
     .sidebar-nav hr { border: none; border-top: 1px solid #e8eaed; margin: 6px 16px; }
+
+    /* ── SDK 섹션 구분 뱃지 ── */
+    .sdk-mx > p,
+    .sdk-mx > strong {
+      color: #b91c1c !important;
+    }
+    .sdk-mx > p::before,
+    .sdk-mx > strong::before {
+      content: '';
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #E42429;
+      margin-right: 6px;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+
+    .sdk-tracking > p,
+    .sdk-tracking > strong {
+      color: #0369a1 !important;
+    }
+    .sdk-tracking > p::before,
+    .sdk-tracking > strong::before {
+      content: '';
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #0ea5e9;
+      margin-right: 6px;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+
+    .sdk-mx .sidebar-nav ul a,
+    .sdk-mx a {
+      --sidebar-nav-link-color--active: #E42429;
+      --sidebar-nav-link-background-color--active: #fff0f0;
+      --sidebar-nav-link-border-color--active: #E42429;
+    }
+    .sdk-tracking .sidebar-nav ul a,
+    .sdk-tracking a {
+      --sidebar-nav-link-color--active: #0369a1 !important;
+    }
+    /* active link 색 오버라이드 for tracking section */
+    .sdk-tracking li.active > a {
+      color: #0369a1 !important;
+      background: #f0f7ff !important;
+      border-left: 3px solid #0ea5e9 !important;
+    }
   </style>
 </head>
 <body>
@@ -224,7 +278,7 @@
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-markup.min.js"></script>
 
-  <!-- 브랜드 헤더 주입 -->
+  <!-- 브랜드 헤더 + SDK 섹션 구분 클래스 주입 -->
   <script>
     (function () {
       const brand = document.createElement('div');
@@ -236,11 +290,23 @@
           <div class="kt-brand-sub">SDK Docs</div>
         </div>`;
 
+      function tagSdkSections() {
+        const nav = document.querySelector('.sidebar-nav');
+        if (!nav) return;
+        nav.querySelectorAll('li').forEach(function (li) {
+          const label = (li.querySelector('p') || li.querySelector('strong') || li);
+          const text = label.textContent.trim();
+          if (text === 'NAP MX SDK') li.classList.add('sdk-mx');
+          if (text === 'NAP Tracking SDK') li.classList.add('sdk-tracking');
+        });
+      }
+
       const obs = new MutationObserver(function () {
         const sb = document.querySelector('.sidebar');
         if (sb && !sb.querySelector('.kt-brand')) {
           sb.insertBefore(brand, sb.firstChild);
         }
+        tagSdkSections();
       });
       obs.observe(document.body, { childList: true, subtree: true });
     })();

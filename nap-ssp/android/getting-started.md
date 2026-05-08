@@ -113,8 +113,11 @@ dependencies {
 public class MyApplication extends android.app.Application {
     public static String MEDIA_KEY = "파트너 사이트에서 발급받은 미디어 키";
     public static String ADUNIT_ID_BANNER = "배너 ADUNIT_ID";
-    public static String ADUNIT_ID_INTERSTITIAL = "전면 ADUNIT_ID";
+    public static String ADUNIT_ID_INTERSTITIAL_BANNER = "전면배너 ADUNIT_ID";
     public static String ADUNIT_ID_NATIVE = "네이티브 ADUNIT_ID";
+    public static String ADUNIT_ID_REWARD_VIDEO = "리워드 동영상 ADUNIT_ID";
+    public static String ADUNIT_ID_VIDEO = "인라인 동영상 ADUNIT_ID";
+    public static String ADUNIT_ID_INTERSTITIAL_VIDEO = "전면 동영상 ADUNIT_ID";
 
     @Override
     public void onCreate() {
@@ -125,7 +128,8 @@ public class MyApplication extends android.app.Application {
 
         // SDK 초기화
         ArrayList<String> adUnits = new ArrayList<>(Arrays.asList(
-            ADUNIT_ID_BANNER, ADUNIT_ID_INTERSTITIAL, ADUNIT_ID_NATIVE
+            ADUNIT_ID_BANNER, ADUNIT_ID_INTERSTITIAL_BANNER, ADUNIT_ID_NATIVE,
+            ADUNIT_ID_REWARD_VIDEO, ADUNIT_ID_VIDEO, ADUNIT_ID_INTERSTITIAL_VIDEO
         ));
         AdMixer.getInstance().initialize(this, MEDIA_KEY, adUnits);
 

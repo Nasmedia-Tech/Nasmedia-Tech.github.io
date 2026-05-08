@@ -5,26 +5,26 @@
 
 - **NAP MX SDK**
   - [개요](nap-ssp/)
-  - **Android**
+  - **🤖 Android**
     - [시작하기](nap-ssp/android/getting-started)
     - [배너 광고](nap-ssp/android/banner)
     - [네이티브 광고](nap-ssp/android/native)
     - [리워드 동영상](nap-ssp/android/reward-video)
     - [동영상 광고](nap-ssp/android/video)
     - [비즈보드](nap-ssp/android/bizboard)
-  - **iOS**
+  - **🍎 iOS**
     - [시작하기](nap-ssp/ios/getting-started)
     - [배너 광고](nap-ssp/ios/banner)
     - [네이티브 광고](nap-ssp/ios/native)
     - [리워드 동영상](nap-ssp/ios/reward-video)
     - [동영상 광고](nap-ssp/ios/video)
     - [비즈보드](nap-ssp/ios/bizboard)
-  - **React Native**
+  - **⚛️ React Native**
     - [시작하기](nap-ssp/react-native/getting-started)
     - [API 레퍼런스](nap-ssp/react-native/api-reference)
-  - **App Bridge (WebView)**
+  - **🌐 App Bridge (WebView)**
     - [시작하기](nap-ssp/app-bridge/getting-started)
-  - **Unity**
+  - **🎮 Unity**
     - [Android](nap-ssp/unity/android)
     - [iOS](nap-ssp/unity/ios)
 
@@ -32,9 +32,9 @@
 
 - **NAP Tracking SDK**
   - [개요](nap-tracking/)
-  - **Android**
+  - **🤖 Android**
     - [시작하기](nap-tracking/android/getting-started)
-  - **iOS**
+  - **🍎 iOS**
     - [시작하기](nap-tracking/ios/getting-started)
 
 ---

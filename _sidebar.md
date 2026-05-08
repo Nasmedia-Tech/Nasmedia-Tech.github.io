@@ -22,7 +22,7 @@
 
 ---
 
-- **NAP Tracking SDK** *(출시 예정)*
+- **NAP Tracking SDK**
   - [개요](nap-tracking/)
   - **Android**
     - [시작하기](nap-tracking/android/getting-started)

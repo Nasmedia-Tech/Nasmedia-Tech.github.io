@@ -1,32 +1,33 @@
 # NAP Tracking SDK 개요
 
-KT Nasmedia NAP Tracking SDK는 앱 내 사용자 행동 이벤트를 수집하고 분석하기 위한 경량 SDK입니다.
+NAPTracker SDK는 사용자 행동을 추적하고 분석하기 위한 라이브러리입니다.
+
+## 지원 플랫폼
+
+| 플랫폼 | 최신 버전 | 최소 OS |
+|--------|----------|--------|
+| Android | 0.0.6 | Android 5.0 (API 21) |
+| iOS | - | iOS 13.0 (Xcode 16+) |
 
 ## 주요 기능
 
 | 기능 | 설명 |
 |------|------|
-| 이벤트 트래킹 | 커스텀 이벤트 이름 + 속성(properties) 수집 |
-| 화면 추적 | 화면 전환 자동/수동 추적 |
-| 사용자 속성 | `identify`로 사용자 프로필 속성 설정 |
-| 크래시 리포팅 | 앱 크래시 자동 감지 및 전송 |
-| 클릭 자동 추적 | View 계층 기반 클릭 이벤트 자동 수집 |
-| 배치 전송 | 이벤트를 모아 주기적으로 서버 전송 (메모리/파일 큐) |
-
-## 이벤트 수집 구조
-
-```
-앱 이벤트 → Tracking API
-         → CoreTracker → QueueManager → MemoryQueue / PersistQueue
-                                     → UploadScheduler → 서버 전송
-RUM 자동 수집 (Crash / Screen / Click) → CoreTracker
-```
+| 이벤트 로깅 | `logEvent()`로 사용자 행동 이벤트 수집 |
+| 사용자 ID | `setUserId()`로 사용자 식별 |
+| 사용자 속성 | `setUserProperty()`로 맞춤 속성 설정 |
+| 화면 추적 (iOS) | UIKit 자동 / SwiftUI 수동 화면 전환 수집 |
 
 ## 시작하기
 
 - [Android →](android/getting-started)
 - [iOS →](ios/getting-started)
 
+## 샘플 앱
+
+- [Android 샘플](https://github.com/Nasmedia-Tech/android-nap-tracker-quickstart)
+- [iOS 샘플](https://github.com/Nasmedia-Tech/iOS-NapTrackerSDK-SampleApp)
+
 ## 문의
 
-- 이메일: [nap_adx@nasmedia.co.kr](mailto:nap_adx@nasmedia.co.kr)
+이메일: [nap_adx@nasmedia.co.kr](mailto:nap_adx@nasmedia.co.kr)

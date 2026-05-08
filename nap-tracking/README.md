@@ -1,6 +1,6 @@
 # NAP Tracking SDK 개요
 
-NAP Tracking SDK는 앱 내 사용자 행동 이벤트를 수집하고 분석하기 위한 경량 SDK입니다.
+KT Nasmedia NAP Tracking SDK는 앱 내 사용자 행동 이벤트를 수집하고 분석하기 위한 경량 SDK입니다.
 
 ## 주요 기능
 

@@ -1,6 +1,6 @@
-# Nasmedia SDK 문서
+# KT Nasmedia SDK 문서
 
-Nasmedia의 모바일 광고 SDK 공식 연동 가이드입니다.
+KT Nasmedia의 모바일 광고 SDK 공식 연동 가이드입니다.
 
 ---
 

@@ -193,6 +193,12 @@ export default function App() {
         '보상형_광고_ID',
       ],
       logLevel: __DEV__ ? 'debug' : 'warn',
+      // 미디에이션 네트워크별 앱 ID / SDK Key 설정 (사용하는 네트워크만)
+      mediations: {
+        adFit: true,
+        pangle:   { appId:  'PANGLE_APP_ID' },
+        appLovin: { sdkKey: 'APPLOVIN_SDK_KEY' },
+      },
     });
   }, []);
 
@@ -362,6 +368,8 @@ async function showRewarded() {
 | SDK 12초 응답 없음 | `onAdLoaded` (타임아웃 폴백) | 해당 없음 |
 | 전면/보상형 `show()` | 플레이스홀더로 즉시 성공 처리 | SDK 통해 실제 광고 표시 |
 
+> 이벤트 payload의 `source` 필드가 `"placeholder"`, `"debug-no-fill"`, `"debug-sdk-timeout"` 이면 플레이스홀더 이벤트입니다.
+
 > 실제 광고 소재 노출과 수익 집계는 반드시 **RELEASE 빌드 + 실기기**에서 검증하세요.
 
 ---
@@ -374,6 +382,9 @@ async function showRewarded() {
 
 **Android: `NapSspXXX is not linked` 에러**
 - Android Studio에서 **Sync Project with Gradle Files**를 실행하거나 `npx react-native run-android`를 재실행하세요.
+
+**Android: `Unsupported class file major version` 에러**
+- JDK 17을 사용하도록 환경을 설정하세요. (`java -version`으로 확인)
 
 **Android: 릴리즈 빌드에서 광고가 안 보여요**
 - ProGuard 설정을 확인하세요. → Step 2 ProGuard 섹션 참조

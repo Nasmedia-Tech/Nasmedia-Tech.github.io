@@ -1,0 +1,371 @@
+# React Native - 시작하기
+
+> **react-native-nap-ssp** — KT 나스미디어 Nap SSP SDK를 React Native 앱에 연동하는 공식 플러그인  
+> 문의: [nap_adx@nasmedia.co.kr](mailto:nap_adx@nasmedia.co.kr)
+
+## 개요
+
+React Native (TypeScript) 몇 줄로 Nap SSP 광고를 요청하면, 네이티브 레이어(Android / iOS)가 실제 광고를 렌더링합니다.
+
+```
+┌──────────────────────────────────────────────────┐
+│              React Native (TypeScript)           │
+│  <BannerAd adUnitId="…" />               ──►    │──► Android Native Module (Kotlin)
+│  new InterstitialAd('…').load().show()   ──►    │──► iOS Native Module (Swift)
+│  onAdLoaded / onAdFailed / rewarded      ◄──    │◄── NapSSP SDK 이벤트
+└──────────────────────────────────────────────────┘
+```
+
+### 지원 광고 포맷
+
+| 포맷 | 컴포넌트 / 클래스 | 설명 |
+|---|---|---|
+| Banner | `<BannerAd>` | 배너 광고 (320×50 등 다양한 사이즈) |
+| Native | `<NativeAd>` | 네이티브 광고 (커스텀 레이아웃) |
+| Video | `<VideoAd>` | 인라인 동영상 광고 |
+| Interstitial | `InterstitialAd` | 전면 광고 |
+| Interstitial Video | `InterstitialVideoAd` | 전면 동영상 광고 |
+| Rewarded | `RewardedAd` | 보상형 광고 (S2S 콜백 지원) |
+
+---
+
+## 요구사항
+
+| 항목 | 요구 사항 |
+|---|---|
+| React Native | 0.72.0 이상 |
+| Android minSdk | 21 이상 |
+| Android targetSdk | 34 이상 권장 |
+| Android JDK | 17 |
+| iOS | 13.0 이상 |
+| Xcode | 15.3 이상 |
+| **플러그인 버전** | `0.1.5` |
+
+> 미디어 키와 광고 단위 ID가 없으면 광고가 로드되지 않습니다. 연동 전 [파트너 사이트](https://publisher.admixer.co.kr/signin)에서 발급받으세요.
+
+---
+
+## Step 1. 패키지 설치
+
+```bash
+npm install react-native-nap-ssp
+# 또는
+yarn add react-native-nap-ssp
+```
+
+---
+
+## Step 2. Android 설정
+
+### Maven 저장소 추가
+
+`android/build.gradle` (프로젝트 루트):
+
+```gradle
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/' }
+        maven { url "https://artifact.bytedance.com/repository/pangle/" }
+    }
+}
+```
+
+### SDK 의존성 추가
+
+`android/app/build.gradle`:
+
+```gradle
+dependencies {
+    implementation 'io.github.nasmedia-tech:admixer-ssp:1.0.23'
+    implementation 'com.google.android.gms:play-services-ads-identifier:18.9.0'
+}
+```
+
+### 미디에이션 어댑터 등록
+
+`MainApplication.kt`:
+
+```kotlin
+import com.nasmedia.admixerssp.common.AdMixer
+
+class MainApplication : Application(), ReactApplication {
+    override fun onCreate() {
+        super.onCreate()
+        // 사용할 미디에이션 어댑터만 등록
+        AdMixer.registerAdapter(AdMixer.ADAPTER_ADMANAGER)
+        AdMixer.registerAdapter(AdMixer.ADAPTER_ADFIT)
+        AdMixer.registerAdapter(AdMixer.ADAPTER_PANGLE)
+    }
+}
+```
+
+### 권한 추가
+
+`android/app/src/main/AndroidManifest.xml`:
+
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+```
+
+### ProGuard 설정 (릴리즈 빌드 필수)
+
+`android/app/proguard-rules.pro`:
+
+```proguard
+-keep class com.nasmedia.admixerssp.** { *; }
+-keep class com.nasmedia.admanager.**  { *; }
+-keep class com.nasmedia.adfit.**      { *; }
+-keep class com.nasmedia.pangle.**     { *; }
+-keep class com.google.android.gms.ads.** { *; }
+```
+
+---
+
+## Step 3. iOS 설정
+
+### CocoaPods 의존성 추가
+
+`ios/Podfile`:
+
+```ruby
+platform :ios, '13.0'
+
+target 'YourAppName' do
+  use_frameworks!
+  pod 'AdMixerMediation'
+  pod 'AdMixerMediationGAM'       # GAM 사용 시
+  pod 'AdMixerMediationAdFit'     # AdFit 사용 시
+  pod 'AdMixerMediationPangle'    # Pangle 사용 시
+  pod 'AdMixerMediationAppLovin'  # AppLovin 사용 시
+  pod 'AdMixerMediationUnityAds'  # Unity Ads 사용 시
+end
+```
+
+```bash
+cd ios && pod install
+```
+
+> 반드시 `.xcworkspace` 파일로 Xcode를 열어 빌드하세요.
+
+### Info.plist 설정
+
+```xml
+<key>NSUserTrackingUsageDescription</key>
+<string>사용자 맞춤형 광고 제공을 위해 추적 권한이 필요합니다.</string>
+```
+
+---
+
+## Step 4. SDK 초기화
+
+앱 시작 시 **한 번만** 호출합니다. `App.tsx` 최상위 `useEffect`에서 호출하는 것을 권장합니다.
+
+```tsx
+import React, { useEffect } from 'react';
+import { NapSspAd } from 'react-native-nap-ssp';
+
+export default function App() {
+  useEffect(() => {
+    NapSspAd.initialize({
+      mediaKey: '파트너 사이트에서 발급받은 미디어 키',
+      adUnitIds: [
+        '배너_광고_ID',
+        '네이티브_광고_ID',
+        '전면_광고_ID',
+        '보상형_광고_ID',
+      ],
+      logLevel: __DEV__ ? 'debug' : 'warn',
+    });
+  }, []);
+
+  return (/* ... */);
+}
+```
+
+> **AdUnit ID 중복 사용 금지**: 하나의 AdUnit ID는 단 하나의 광고 객체에서만 사용해야 합니다.
+
+---
+
+## Step 5. 광고 유형별 사용법
+
+### 배너 광고 (BannerAd)
+
+```tsx
+import { BannerAd } from 'react-native-nap-ssp';
+
+function MyScreen() {
+  return (
+    <BannerAd
+      adUnitId="배너_광고_ID"
+      size="BANNER_320x50"
+      onAdLoaded={() => console.log('배너 광고 로드 성공')}
+      onAdFailedToLoad={(error) => console.warn('배너 광고 로드 실패', error)}
+    />
+  );
+}
+```
+
+| 사이즈 상수 | 크기 |
+|---|---|
+| `BANNER_320x50` | 320 × 50 (기본 배너) |
+| `BANNER_320x100` | 320 × 100 |
+| `BANNER_300x250` | 300 × 250 (중형 직사각형) |
+| `BANNER_320x480` | 320 × 480 |
+| `LARGE_BANNER` | 320 × 100 |
+| `MEDIUM_RECTANGLE` | 300 × 250 |
+| `SMART_BANNER` | 화면 너비에 맞게 자동 조절 |
+
+---
+
+### 네이티브 광고 (NativeAd)
+
+```tsx
+import { NativeAd } from 'react-native-nap-ssp';
+
+function MyScreen() {
+  return (
+    <NativeAd
+      adUnitId="네이티브_광고_ID"
+      style={{ width: '100%', height: 200 }}
+      onAdLoaded={() => console.log('네이티브 광고 로드 성공')}
+      onAdFailedToLoad={(error) => console.warn('네이티브 광고 로드 실패', error)}
+    />
+  );
+}
+```
+
+> `style`에 반드시 `width`와 `height`를 명시해야 광고가 표시됩니다.
+
+---
+
+### 동영상 광고 (VideoAd)
+
+```tsx
+import { VideoAd } from 'react-native-nap-ssp';
+
+function MyScreen() {
+  return (
+    <VideoAd
+      adUnitId="동영상_광고_ID"
+      style={{ width: '100%', height: 250 }}
+      onAdLoaded={() => console.log('동영상 광고 로드 성공')}
+      onAdCompleted={() => console.log('동영상 시청 완료')}
+      onAdSkipped={() => console.log('동영상 스킵')}
+    />
+  );
+}
+```
+
+---
+
+### 전면 광고 (InterstitialAd)
+
+`load()` 후 원하는 시점에 `show()`로 표시합니다.
+
+```tsx
+import { InterstitialAd } from 'react-native-nap-ssp';
+
+async function showInterstitial() {
+  const interstitial = new InterstitialAd('전면_광고_ID');
+
+  interstitial.addAdEventListener('loaded', () => console.log('광고 로드 완료'));
+  interstitial.addAdEventListener('closed', () => console.log('광고 닫힘'));
+  interstitial.addAdEventListener('loadFailed', (error) => console.warn('로드 실패', error));
+
+  try {
+    await interstitial.load();
+    await interstitial.show();
+  } catch (error) {
+    console.warn('전면 광고 표시 실패', error);
+  }
+}
+```
+
+---
+
+### 전면 동영상 광고 (InterstitialVideoAd)
+
+```tsx
+import { InterstitialVideoAd } from 'react-native-nap-ssp';
+
+async function showInterstitialVideo() {
+  const video = new InterstitialVideoAd('전면동영상_광고_ID');
+
+  video.addAdEventListener('loaded', () => console.log('광고 로드 완료'));
+  video.addAdEventListener('completed', () => console.log('동영상 시청 완료'));
+  video.addAdEventListener('skipped', () => console.log('동영상 스킵'));
+  video.addAdEventListener('closed', () => console.log('광고 닫힘'));
+
+  try {
+    await video.load();
+    await video.show();
+  } catch (error) {
+    console.warn('전면 동영상 광고 표시 실패', error);
+  }
+}
+```
+
+---
+
+### 보상형 광고 (RewardedAd)
+
+```tsx
+import { RewardedAd } from 'react-native-nap-ssp';
+
+async function showRewarded() {
+  const rewarded = new RewardedAd('보상형_광고_ID');
+
+  rewarded.addAdEventListener('loaded', () => console.log('광고 로드 완료'));
+  rewarded.addAdEventListener('rewarded', () => {
+    // 여기서 사용자에게 보상을 지급하세요
+    console.log('보상 지급!');
+  });
+  rewarded.addAdEventListener('closed', () => console.log('광고 닫힘'));
+  rewarded.addAdEventListener('loadFailed', (error) => console.warn('로드 실패', error));
+
+  try {
+    await rewarded.load();
+    await rewarded.show();
+  } catch (error) {
+    console.warn('보상형 광고 표시 실패', error);
+  }
+}
+```
+
+> 보안이 중요한 서비스에서는 클라이언트 콜백 대신 **S2S(Server-to-Server) 보상 콜백**을 권장합니다.
+
+---
+
+## 디버그 vs 릴리즈 빌드
+
+| 상황 | DEBUG | RELEASE |
+|---|---|---|
+| SDK 광고 로드 실패 | `onAdLoaded` (플레이스홀더) | `onAdFailedToLoad` (실제 에러) |
+| SDK 12초 응답 없음 | `onAdLoaded` (타임아웃 폴백) | 해당 없음 |
+| 전면/보상형 `show()` | 플레이스홀더로 즉시 성공 처리 | SDK 통해 실제 광고 표시 |
+
+> 실제 광고 소재 노출과 수익 집계는 반드시 **RELEASE 빌드 + 실기기**에서 검증하세요.
+
+---
+
+## 자주 발생하는 문제
+
+**광고가 전혀 로드되지 않아요**
+- `mediaKey`와 `adUnitId`가 올바른지 확인하세요.
+- 시뮬레이터 대신 실기기로 테스트해 보세요.
+
+**Android: `NapSspXXX is not linked` 에러**
+- Android Studio에서 **Sync Project with Gradle Files**를 실행하거나 `npx react-native run-android`를 재실행하세요.
+
+**Android: 릴리즈 빌드에서 광고가 안 보여요**
+- ProGuard 설정을 확인하세요. → Step 2 ProGuard 섹션 참조
+
+**iOS: 빌드 후에도 광고가 안 나와요**
+- `.xcworkspace`로 빌드하고 있는지 확인하세요.
+
+**배너/네이티브 광고가 안 보여요**
+- `style`에 `width`와 `height`를 명시했는지 확인하세요.

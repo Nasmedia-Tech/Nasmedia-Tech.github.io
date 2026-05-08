@@ -1,4 +1,4 @@
-# NAP Tracking SDK 개요
+# nap tracking sdk 개요
 
 NAPTracker SDK는 사용자 행동을 추적하고 분석하기 위한 라이브러리입니다.
 

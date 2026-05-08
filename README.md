@@ -1,12 +1,12 @@
-# KT Nasmedia SDK 문서
+# kt nasmedia SDK 문서
 
-KT Nasmedia의 모바일 광고 SDK 공식 연동 가이드입니다.
+kt nasmedia의 모바일 광고 SDK 공식 연동 가이드입니다.
 
 ---
 
 ## SDK 소개
 
-### NAP MX SDK
+### nap mx sdk
 
 앱에 광고를 노출하기 위한 미디에이션 SDK입니다. 배너, 전면, 네이티브, 리워드 동영상 등 다양한 광고 포맷과 Google, Kakao Adfit, Pangle, AppLovin, Unity Ads 등 주요 네트워크 미디에이션을 지원합니다.
 
@@ -20,7 +20,7 @@ KT Nasmedia의 모바일 광고 SDK 공식 연동 가이드입니다.
 
 ---
 
-### NAP Tracking SDK
+### nap tracking sdk
 
 앱 내 사용자 행동 이벤트를 수집하고 분석하기 위한 SDK입니다. 이벤트 트래킹, 화면 전환, 클릭 자동 수집, 크래시 리포팅을 지원합니다.
 

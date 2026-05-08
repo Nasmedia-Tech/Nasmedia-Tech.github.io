@@ -2,9 +2,9 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>KT Nasmedia SDK Docs</title>
+  <title>kt nasmedia SDK Docs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="KT Nasmedia NAP MX SDK · NAP Tracking SDK 공식 연동 가이드">
+  <meta name="description" content="kt nasmedia nap mx sdk · nap tracking sdk 공식 연동 가이드">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -299,7 +299,7 @@
       brand.innerHTML = `
         <div class="kt-brand-icon">📡</div>
         <div>
-          <div class="kt-brand-name">KT Nasmedia</div>
+          <div class="kt-brand-name">kt nasmedia</div>
           <div class="kt-brand-sub">SDK Docs</div>
         </div>`;
 
@@ -310,8 +310,8 @@
           const label = li.querySelector('p') || li.querySelector('strong');
           if (!label) return;
           const text = label.textContent.trim();
-          if (text.includes('NAP MX SDK')) li.classList.add('sdk-mx');
-          else if (text.includes('NAP Tracking SDK')) li.classList.add('sdk-tracking');
+          if (text.includes('nap mx sdk')) li.classList.add('sdk-mx');
+          else if (text.includes('nap tracking sdk')) li.classList.add('sdk-tracking');
         });
       }
 

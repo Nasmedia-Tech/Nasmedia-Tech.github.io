@@ -3,7 +3,7 @@
 
 ---
 
-- **NAP MX SDK**
+- **nap mx sdk**
   - [개요](nap-ssp/)
   - **🤖 Android**
     - [시작하기](nap-ssp/android/getting-started)
@@ -30,7 +30,7 @@
 
 ---
 
-- **NAP Tracking SDK**
+- **nap tracking sdk**
   - [개요](nap-tracking/)
   - **🤖 Android**
     - [시작하기](nap-tracking/android/getting-started)

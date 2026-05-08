@@ -5,370 +5,183 @@
   <title>KT Nasmedia SDK Docs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="KT Nasmedia NAP SSP SDK · NAP Tracking SDK 공식 연동 가이드">
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Docsify 기본 테마 (레이아웃 기반) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+
   <style>
+    /* ── 브랜드/색상 변수 ── */
     :root {
-      --brand:        #E42429;
-      --brand-hover:  #c41f24;
-      --accent:       #1a73e8;
-      --sidebar-w:    268px;
+      --theme-color: #E42429;
+      --base-font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+      --base-font-size: 15px;
+      --base-line-height: 1.8;
+      --base-color: #1f2328;
 
-      /* sidebar */
-      --sb-bg:        #ffffff;
-      --sb-border:    #e8eaed;
-      --sb-text:      #444c56;
-      --sb-text-muted:#6e7781;
-      --sb-active:    #E42429;
-      --sb-active-bg: #fff0f0;
-      --sb-hover-bg:  #f6f8fa;
-      --sb-section:   #8c959f;
+      /* 사이드바 */
+      --sidebar-width: 270px;
+      --sidebar-background: #ffffff;
+      --sidebar-border-color: #e8eaed;
+      --sidebar-border-width: 0 1px 0 0;
+      --sidebar-nav-link-color: #444c56;
+      --sidebar-nav-link-color--active: #E42429;
+      --sidebar-nav-link-background-color--active: #fff0f0;
+      --sidebar-nav-link-font-weight--active: 600;
+      --sidebar-nav-link-border-color--active: #E42429;
+      --sidebar-nav-link-border-width--active: 0 0 0 3px;
+      --sidebar-nav-link-padding: 6px 16px;
+      --sidebar-nav-link-font-size: 13.5px;
 
-      /* content */
-      --bg:           #ffffff;
-      --text:         #1f2328;
-      --text-muted:   #656d76;
-      --border:       #d8dee4;
-      --surface:      #f6f8fa;
+      /* 콘텐츠 */
+      --content-max-width: 820px;
+      --base-background-color: #fff;
 
-      /* code */
-      --code-bg:      #161b22;
-      --code-border:  #30363d;
+      /* 코드 */
+      --code-font-family: 'JetBrains Mono', monospace;
+      --code-font-size: 13px;
+      --code-theme-background: #161b22;
+      --code-theme-text: #e6edf3;
+      --code-inline-background: #f6f8fa;
+      --code-inline-color: #c7254e;
+      --code-inline-border-radius: 4px;
 
-      --radius:       6px;
-      --radius-lg:    10px;
+      /* 제목 */
+      --heading-color: #1f2328;
+      --heading-h1-font-size: 1.85rem;
+      --heading-h1-font-weight: 700;
+      --heading-h1-border-width: 0 0 2px;
+      --heading-h1-border-color: #E42429;
+      --heading-h2-font-size: 1.25rem;
+      --heading-h2-font-weight: 600;
+      --heading-h2-border-color: #e8eaed;
+
+      /* 테이블 */
+      --table-cell-padding: 9px 14px;
+      --table-head-background: #f6f8fa;
+      --table-head-font-size: 11.5px;
+      --table-head-font-weight: 700;
+      --table-head-color: #656d76;
+      --table-row-even-background: transparent;
+      --table-row-odd-background: transparent;
+
+      /* 링크 */
+      --link-color: #1a73e8;
+
+      /* blockquote */
+      --blockquote-background: #f0f6ff;
+      --blockquote-border-color: #1a73e8;
+      --blockquote-color: #0969da;
+      --blockquote-font-size: 14px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 15px;
-      color: var(--text);
-      background: var(--bg);
-    }
-
-    /* ────────────────── SIDEBAR ────────────────── */
-    .sidebar {
-      background: var(--sb-bg) !important;
-      border-right: 1px solid var(--sb-border) !important;
-      width: var(--sidebar-w) !important;
-      padding: 0 !important;
-    }
-
-    /* 브랜드 헤더 */
-    .sidebar::before {
-      content: '';
-      display: block;
-      height: 56px;
-      background: var(--sb-bg);
-      border-bottom: 1px solid var(--sb-border);
-    }
-
-    /* nav 전체 */
-    .sidebar-nav {
-      padding: 8px 0 32px !important;
-      overflow-y: auto;
-    }
-    .sidebar-nav > ul, .sidebar-nav ul {
-      list-style: none;
-      margin: 0; padding: 0;
-    }
-
-    /* 섹션 구분 — "**TEXT**" → bold item */
-    .sidebar-nav > ul > li > p {
+    /* ── 사이드바 추가 스타일 ── */
+    .sidebar-nav > ul > li > p,
+    .sidebar-nav > ul > li > strong {
       font-size: 11px !important;
       font-weight: 700 !important;
       letter-spacing: .7px !important;
       text-transform: uppercase !important;
-      color: var(--sb-section) !important;
-      padding: 20px 16px 4px !important;
+      color: #8c959f !important;
+      padding: 18px 16px 4px !important;
       margin: 0 !important;
+      display: block;
     }
 
-    /* 링크 공통 */
     .sidebar-nav a {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 16px;
-      font-size: 13.5px;
-      color: var(--sb-text) !important;
-      text-decoration: none !important;
-      border-radius: var(--radius);
-      margin: 1px 8px;
-      line-height: 1.4;
-      transition: background .1s, color .1s;
-      border-left: 2px solid transparent;
-    }
-    .sidebar-nav ul ul a       { padding-left: 28px; font-size: 13px; }
-    .sidebar-nav ul ul ul a    { padding-left: 40px; font-size: 12.5px; color: var(--sb-text-muted) !important; }
-
-    .sidebar-nav a:hover {
-      background: var(--sb-hover-bg);
-      color: var(--text) !important;
-    }
-    .sidebar-nav .active > a {
-      background: var(--sb-active-bg) !important;
-      color: var(--sb-active) !important;
-      font-weight: 600;
-      border-left-color: var(--sb-active);
+      border-radius: 6px !important;
+      margin: 1px 8px !important;
+      transition: background .1s, color .1s !important;
     }
 
-    /* hr in sidebar */
-    .sidebar-nav hr {
-      border: none;
-      border-top: 1px solid var(--sb-border);
-      margin: 8px 16px;
-    }
+    .sidebar-nav ul ul a { padding-left: 28px !important; font-size: 13px !important; }
+    .sidebar-nav ul ul ul a { padding-left: 40px !important; font-size: 12.5px !important; color: #8c959f !important; }
 
-    /* ────────────────── CONTENT ────────────────── */
-    .content { background: var(--bg); }
-
-    .markdown-section {
-      max-width: 820px !important;
-      padding: 40px 48px 80px !important;
-    }
-
-    /* 제목 */
-    .markdown-section h1 {
-      font-size: 1.9rem;
-      font-weight: 700;
-      color: var(--text);
-      padding-bottom: .5em;
-      border-bottom: 2px solid var(--brand);
-      margin-top: 0;
-      margin-bottom: 1.2rem;
-    }
-    .markdown-section h2 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--text);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: .35em;
-      margin-top: 2rem;
-      margin-bottom: .8rem;
-    }
-    .markdown-section h3 {
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin-top: 1.6rem;
-      margin-bottom: .5rem;
-    }
-    .markdown-section h4 {
-      font-size: .95rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      margin-top: 1.2rem;
-      margin-bottom: .4rem;
-    }
-
-    /* 본문 */
-    .markdown-section p { line-height: 1.8; color: #3b434b; margin-bottom: .8rem; }
-
-    /* 인라인 코드 */
-    .markdown-section :not(pre) > code {
-      font-family: 'JetBrains Mono', monospace !important;
-      font-size: .84em;
-      background: var(--surface);
-      color: #c7254e;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 2px 6px;
-    }
-
-    /* 코드 블록 */
+    /* ── 코드 블록 ── */
     .markdown-section pre {
-      background: var(--code-bg) !important;
-      border: 1px solid var(--code-border) !important;
-      border-radius: var(--radius-lg) !important;
-      padding: 20px 24px !important;
-      overflow-x: auto;
-      margin: 1rem 0 1.4rem;
-      position: relative;
-    }
-    .markdown-section pre code {
-      font-family: 'JetBrains Mono', monospace !important;
-      font-size: 13px !important;
-      line-height: 1.7 !important;
-      color: #e6edf3 !important;
-      background: transparent !important;
-      border: none !important;
-      padding: 0 !important;
+      border-radius: 10px !important;
+      border: 1px solid #30363d !important;
     }
 
-    /* 테이블 */
+    /* ── 테이블 ── */
     .markdown-section table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1rem 0 1.4rem;
-      font-size: 14px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
+      border: 1px solid #e8eaed;
+      border-radius: 8px;
       overflow: hidden;
     }
-    .markdown-section th {
-      background: var(--surface);
-      font-size: 11.5px;
-      font-weight: 700;
-      letter-spacing: .4px;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      padding: 10px 14px;
-      text-align: left;
-      border-bottom: 1px solid var(--border);
-    }
-    .markdown-section td {
-      padding: 9px 14px;
-      border-bottom: 1px solid #f0f2f4;
-      vertical-align: top;
-      line-height: 1.6;
-    }
+    .markdown-section th { letter-spacing: .4px; }
+    .markdown-section td { border-bottom: 1px solid #f0f2f4; }
     .markdown-section tr:last-child td { border-bottom: none; }
-    .markdown-section tr:hover td { background: #fafbfc; }
+    .markdown-section tr:hover td { background: #fafbfc !important; }
 
-    /* blockquote */
-    .markdown-section blockquote {
-      background: #f0f6ff;
-      border-left: 4px solid var(--accent);
-      border-radius: 0 var(--radius) var(--radius) 0;
-      padding: 12px 18px;
-      margin: 1rem 0;
-    }
-    .markdown-section blockquote p {
-      color: #0969da;
-      font-size: 14px;
-      margin: 0;
-    }
-
-    /* Docsify 알림 (?>  !>  ) */
-    .tip, p.tip {
-      background: #f0fdf4 !important;
-      border-left: 4px solid #22c55e !important;
-      border-radius: 0 var(--radius) var(--radius) 0 !important;
-      padding: 12px 18px !important;
-      margin: 1rem 0 !important;
-    }
-    .tip p { color: #15803d !important; font-size: 14px !important; margin: 0 !important; }
-
-    .warn, p.warn {
-      background: #fffbeb !important;
-      border-left: 4px solid #f59e0b !important;
-      border-radius: 0 var(--radius) var(--radius) 0 !important;
-      padding: 12px 18px !important;
-      margin: 1rem 0 !important;
-    }
-    .warn p { color: #92400e !important; font-size: 14px !important; margin: 0 !important; }
-
-    .danger, p.danger {
-      background: #fff1f2 !important;
-      border-left: 4px solid var(--brand) !important;
-      border-radius: 0 var(--radius) var(--radius) 0 !important;
-      padding: 12px 18px !important;
-      margin: 1rem 0 !important;
-    }
-    .danger p { color: #9f1239 !important; font-size: 14px !important; margin: 0 !important; }
-
-    /* hr */
-    .markdown-section hr {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 2rem 0;
-    }
-
-    /* 목록 */
-    .markdown-section ul, .markdown-section ol {
-      padding-left: 1.5rem;
-      line-height: 1.9;
-      color: #3b434b;
-    }
-    .markdown-section li { margin-bottom: .2rem; }
-
-    /* 링크 */
-    .markdown-section a { color: var(--accent); text-decoration: none; }
-    .markdown-section a:hover { text-decoration: underline; }
-
-    /* ────────────────── 검색 ────────────────── */
-    .search {
-      padding: 12px 12px 8px;
-      border-bottom: 1px solid var(--sb-border);
-      background: var(--sb-bg);
-    }
+    /* ── 검색창 ── */
+    .search { padding: 10px 12px 8px; border-bottom: 1px solid #e8eaed; }
     .search input {
-      width: 100%;
-      background: var(--surface) !important;
-      border: 1px solid var(--border) !important;
-      border-radius: var(--radius) !important;
-      color: var(--text) !important;
-      font-size: 13px !important;
-      padding: 7px 12px 7px 30px !important;
+      border-radius: 6px !important;
+      border: 1px solid #d8dee4 !important;
       font-family: 'Noto Sans KR', sans-serif !important;
+      font-size: 13px !important;
     }
-    .search input:focus {
-      outline: none !important;
-      border-color: var(--brand) !important;
-      box-shadow: 0 0 0 3px rgba(228,36,41,.12) !important;
-    }
-    .search .search-keyword { color: var(--brand) !important; }
-    .results-panel {
-      background: var(--bg) !important;
-      border: 1px solid var(--border) !important;
-      border-radius: var(--radius-lg) !important;
-      box-shadow: 0 8px 24px rgba(0,0,0,.1) !important;
-    }
-    .results-panel .matching-post { border-bottom: 1px solid var(--border) !important; }
-    .results-panel .matching-post a { color: var(--text) !important; font-size: 14px !important; }
-    .results-panel .matching-post p { color: var(--text-muted) !important; font-size: 12px !important; }
+    .search input:focus { border-color: #E42429 !important; box-shadow: 0 0 0 3px rgba(228,36,41,.12) !important; }
 
-    /* ────────────────── 복사 버튼 ────────────────── */
+    /* ── 복사 버튼 ── */
     .docsify-copy-code-button {
       background: #21262d !important;
       color: #8b949e !important;
       border: 1px solid #30363d !important;
-      border-radius: var(--radius) !important;
+      border-radius: 5px !important;
       font-family: 'JetBrains Mono', monospace !important;
       font-size: 11px !important;
-      padding: 4px 10px !important;
-      top: 10px !important; right: 10px !important;
-      transition: color .15s;
+      top: 10px !important;
+      right: 10px !important;
     }
     .docsify-copy-code-button:hover { color: #e6edf3 !important; }
 
-    /* ────────────────── 페이지네이션 ────────────────── */
-    .pagination-item a {
-      background: var(--bg) !important;
-      border: 1px solid var(--border) !important;
-      border-radius: var(--radius-lg) !important;
-      padding: 10px 20px !important;
-      color: var(--text) !important;
-      font-size: 13px !important;
-      box-shadow: 0 1px 3px rgba(0,0,0,.08) !important;
-      transition: border-color .15s, box-shadow .15s;
-    }
-    .pagination-item a:hover {
-      border-color: var(--brand) !important;
-      box-shadow: 0 2px 8px rgba(228,36,41,.15) !important;
-    }
-    .pagination-item-label { color: var(--brand) !important; }
+    /* ── 페이지네이션 ── */
+    .pagination-item-label { color: #E42429 !important; }
+    .pagination-item a:hover { border-color: #E42429 !important; }
 
-    /* ────────────────── 상단 바 (nav) ────────────────── */
-    nav.app-nav { display: none; }
-
-    /* ────────────────── 반응형 ────────────────── */
-    @media (max-width: 768px) {
-      .markdown-section { padding: 24px 20px 60px !important; }
+    /* ── 사이드바 브랜드 헤더 영역 ── */
+    .kt-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 16px;
+      height: 56px;
+      border-bottom: 1px solid #e8eaed;
+      background: #fff;
+      flex-shrink: 0;
     }
+    .kt-brand-icon {
+      width: 30px; height: 30px;
+      background: #E42429;
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+    .kt-brand-name { font-size: 13.5px; font-weight: 700; color: #1f2328; line-height: 1.2; }
+    .kt-brand-sub  { font-size: 10.5px; color: #8c959f; letter-spacing: .3px; }
+
+    /* sidebar flex 레이아웃 — 브랜드 상단 고정 */
+    .sidebar {
+      display: flex !important;
+      flex-direction: column !important;
+      padding-top: 0 !important;
+    }
+    .sidebar .search { order: 2; }
+    .sidebar .sidebar-nav { order: 3; }
+
+    /* hr in sidebar */
+    .sidebar-nav hr { border: none; border-top: 1px solid #e8eaed; margin: 6px 16px; }
   </style>
 </head>
 <body>
-  <div id="app">
-    <div style="display:flex;align-items:center;justify-content:center;height:100vh;flex-direction:column;gap:12px;color:#666">
-      <div style="width:40px;height:40px;border:3px solid #E42429;border-top-color:transparent;border-radius:50%;animation:spin 1s linear infinite"></div>
-      <span style="font-family:sans-serif;font-size:14px">문서를 불러오는 중...</span>
-      <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
-    </div>
-  </div>
+  <div id="app"></div>
 
   <script>
     window.$docsify = {
@@ -395,50 +208,38 @@
     }
   </script>
 
+  <!-- Docsify 코어 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+
+  <!-- 플러그인 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code@2/dist/docsify-copy-code.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
 
-  <!-- Syntax highlighting -->
+  <!-- 언어 하이라이팅 -->
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-kotlin.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-swift.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-java.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-ruby.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-markup.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-gradle.min.js"></script>
 
-  <!-- 사이드바 로고 주입 -->
+  <!-- 브랜드 헤더 주입 -->
   <script>
-    (function injectBrand() {
-      const BRAND_HTML = `
-        <div style="
-          display:flex;align-items:center;gap:10px;
-          padding:0 16px;height:56px;
-          border-bottom:1px solid #e8eaed;
-          position:sticky;top:0;background:#fff;z-index:10;
-        ">
-          <div style="
-            width:30px;height:30px;
-            background:#E42429;border-radius:7px;
-            display:flex;align-items:center;justify-content:center;
-            font-size:15px;flex-shrink:0;
-          ">📡</div>
-          <div style="line-height:1.25">
-            <div style="font-size:13.5px;font-weight:700;color:#1f2328">KT Nasmedia</div>
-            <div style="font-size:10.5px;color:#8c959f;letter-spacing:.3px">SDK Docs</div>
-          </div>
+    (function () {
+      const brand = document.createElement('div');
+      brand.className = 'kt-brand';
+      brand.innerHTML = `
+        <div class="kt-brand-icon">📡</div>
+        <div>
+          <div class="kt-brand-name">KT Nasmedia</div>
+          <div class="kt-brand-sub">SDK Docs</div>
         </div>`;
 
-      const obs = new MutationObserver(() => {
+      const obs = new MutationObserver(function () {
         const sb = document.querySelector('.sidebar');
         if (sb && !sb.querySelector('.kt-brand')) {
-          const wrapper = document.createElement('div');
-          wrapper.className = 'kt-brand';
-          wrapper.innerHTML = BRAND_HTML;
-          sb.insertBefore(wrapper, sb.firstChild);
-          obs.disconnect();
+          sb.insertBefore(brand, sb.firstChild);
         }
       });
       obs.observe(document.body, { childList: true, subtree: true });

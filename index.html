@@ -153,15 +153,29 @@
     }
 
     /* ── 테이블 ── */
-    .markdown-section table {
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
       border: 1px solid #e8eaed;
       border-radius: 8px;
-      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .markdown-section table {
+      border: none !important;
+      border-radius: 0 !important;
+      overflow: visible !important;
+      margin: 0 !important;
+      min-width: 100%;
     }
     .markdown-section th { letter-spacing: .4px; }
     .markdown-section td { border-bottom: 1px solid #f0f2f4; }
     .markdown-section tr:last-child td { border-bottom: none; }
     .markdown-section tr:hover td { background: #fafbfc !important; }
+    /* 날짜·버전·코드·짧은 값 셀은 줄바꿈 방지 */
+    .markdown-section td:first-child,
+    .markdown-section th:first-child,
+    .markdown-section td:nth-child(2),
+    .markdown-section th:nth-child(2) { white-space: nowrap; }
 
     /* ── 검색창 ── */
     .search { padding: 10px 12px 8px; border-bottom: 1px solid #e8eaed; }
@@ -294,6 +308,19 @@
         depth: 6,
       },
       alias: { '/.*/_sidebar.md': '/_sidebar.md' },
+      plugins: [
+        function(hook) {
+          hook.doneEach(function() {
+            document.querySelectorAll('.markdown-section table').forEach(function(table) {
+              if (table.parentNode.classList.contains('table-wrap')) return;
+              var wrap = document.createElement('div');
+              wrap.className = 'table-wrap';
+              table.parentNode.insertBefore(wrap, table);
+              wrap.appendChild(table);
+            });
+          });
+        }
+      ],
       copyCode: { buttonText: '복사', errorText: '오류', successText: '완료 ✓' },
       pagination: {
         previousText: '← 이전',

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="AdRevenue Lab 1.0.1 사용법, 데이터 삭제, 광고, 업데이트, CSV 공유 및 문의 안내입니다.">
+  <meta name="description" content="AdRevenue Lab 1.0.3 사용법, NAP MX 연결, 데이터 삭제, 광고, 업데이트, CSV 공유 및 문의 안내입니다.">
   <title>고객지원 | AdRevenue Lab</title>
   <link rel="stylesheet" href="../legal.css">
 </head>
@@ -14,7 +14,7 @@
     <section class="hero" aria-labelledby="page-title">
       <p class="eyebrow">SUPPORT</p><h1 id="page-title">AdRevenue Lab 고객지원</h1>
       <p class="lead">계산·목표·분석·시나리오·광고·공유 기능을 안전하게 사용하는 방법과 문제 해결 순서를 안내합니다.</p>
-      <p class="meta">앱 버전 1.0.1 · Android/iOS · 최종 업데이트 2026년 9월 6일</p>
+      <p class="meta">앱 버전 1.0.3 · Android/iOS · 최종 업데이트 2026년 9월 11일</p>
       <div class="summary-grid" aria-label="지원 핵심 안내"><div class="summary-item"><strong>예상치 계산</strong><p>입력한 가정에 따른 시뮬레이션이며 수익을 보장하지 않습니다.</p></div><div class="summary-item"><strong>로컬 저장</strong><p>계산값과 시나리오는 기기에서 직접 초기화할 수 있습니다.</p></div><div class="summary-item"><strong>광고 선택권</strong><p>리워드 광고는 선택 사항이며 핵심 기능을 잠그지 않습니다.</p></div></div>
     </section>
 
@@ -30,6 +30,8 @@
       <details><summary>iOS 추적 허용을 거부해도 사용할 수 있나요?</summary><div><p>예. ATT를 거부해도 계산·저장·공유·리워드 기능은 제한되지 않습니다. 광고는 제한된 형태로 계속 표시될 수 있습니다. 권한은 iOS 설정의 <strong>개인정보 보호 및 보안 → 추적</strong>에서 바꿀 수 있습니다.</p></div></details>
       <details><summary>Android 광고 맞춤설정을 바꾸려면?</summary><div><p>Android 설정의 개인정보 보호 또는 Google 광고 메뉴에서 광고 ID 삭제·재설정과 광고 개인정보 선택을 관리할 수 있습니다. 메뉴 이름과 위치는 제조사·OS 버전에 따라 다를 수 있습니다.</p></div></details>
       <details><summary>큰 글자, 화면 읽기 또는 태블릿에서 문제가 있습니다.</summary><div><p>기기 모델, OS 버전, 글자 크기, 화면 방향, 문제가 난 화면과 재현 순서를 알려 주세요. 스크린샷을 보낼 때는 알림·계정명·시나리오 메모 등 개인정보나 회사 기밀을 가려 주세요.</p></div></details>
+      <details><summary>내 NAP MX 실적을 어떻게 가져오나요?</summary><div><p><strong>분석 → NAP MX에서 업데이트</strong>에서 본인의 Report API Key와 조회 기간을 입력하고 연결 테스트를 실행하세요. 조회 결과는 바로 저장되지 않고 미리보기로 표시됩니다. 기존 직접 입력·CSV 데이터와 충돌하면 현재 값을 유지할지 NAP MX 값으로 바꿀지 선택한 뒤 가져옵니다. 앱은 NAP MX에 없는 DAU·운영비 등의 값을 직접 보완할 수 있습니다.</p></div></details>
+      <details><summary>NAP MX API Key는 어디에 저장되나요?</summary><div><p>Android에서는 Keystore로 암호화한 백업 제외 저장소, iOS에서는 이 기기 전용 Keychain에 저장하며 회사 서버로 보내지 않습니다. 저장 후에는 전체 키를 다시 표시하지 않습니다. 연결 해제 시 키를 삭제하고 가져온 실적은 기본적으로 유지합니다. 문의·스크린샷·로그에 API Key를 보내지 마세요.</p></div></details>
     </section>
 
     <section aria-labelledby="contact"><h2 id="contact">문의하기</h2><div class="card"><p><a href="mailto:security@nasmedia.co.kr?subject=AdRevenue%20Lab%20지원%20문의"><strong>security@nasmedia.co.kr</strong></a>로 아래 내용을 보내 주세요.</p><ul><li>Android 또는 iOS, 기기 모델과 OS 버전</li><li>앱 버전과 문제가 발생한 화면</li><li>기대한 동작, 실제 동작, 재현 순서</li><li>가능한 경우 개인정보를 가린 스크린샷</li></ul><p><strong>보내지 마세요:</strong> 비밀번호, 인증정보, 주민등록번호, 고객사 기밀, 실제 광고 매출 원장, 삭제하지 않은 광고 식별자.</p></div><p>개인정보 열람·삭제·처리정지 요청은 같은 이메일 또는 <a href="tel:+82221887300">02-2188-7300</a>으로 접수할 수 있습니다.</p></section>

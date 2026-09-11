@@ -14,14 +14,14 @@
     <section class="hero" aria-labelledby="page-title">
       <p class="eyebrow">PRIVACY</p><h1 id="page-title">개인정보 처리방침</h1>
       <p class="lead">개인정보 처리의 기준은 <strong>케이티나스미디어 개인정보 처리방침</strong>입니다. 이 페이지는 그 방침을 대체하지 않고, AdRevenue Lab의 실제 데이터 흐름과 사용자 선택권을 앱 단위로 설명합니다.</p>
-      <p class="meta">시행일·최종 개정일: 2026년 9월 11일 · AdRevenue Lab (<code>kr.co.nasmedia.napyield</code>) · 주식회사 케이티나스미디어</p>
+      <p class="meta">시행일·최종 개정일: 2026년 9월 12일 · AdRevenue Lab (<code>kr.co.nasmedia.napyield</code>) · 주식회사 케이티나스미디어</p>
     </section>
 
     <aside class="notice" aria-label="기준 방침"><strong>기준 방침.</strong> 처리 목적과 법적 근거, 보유·파기, 안전성 확보조치, 정보주체의 권리 행사와 거부 방법, 고충 처리와 구제 절차는 모두 <a href="https://www.nasmedia.co.kr/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EB%B0%A9%EC%B9%A8/">케이티나스미디어 개인정보 처리방침</a>을 따릅니다. 광고 데이터는 그중 <strong>제8장(행태정보의 수집·이용 및 거부)</strong>이 기준입니다.</aside>
 
     <section aria-labelledby="local-data"><h2 id="local-data">앱이 직접 처리하는 데이터</h2>
       <ul>
-        <li><strong>계산 데이터는 회사 서버로 전송하지 않습니다.</strong> MAU·DAU·단가·비용 등 입력값, 저장한 시나리오와 앱 설정은 기기 저장소에서 처리하며 광고 요청에도 넣지 않습니다.</li>
+        <li><strong>계산·실적·운영 기록은 회사 서버로 전송하지 않습니다.</strong> MAU·DAU·단가·비용 등 입력값, Revenue Journal 실적, 목표·시나리오, 개선 Action과 메모, 주간 점검 상태, 사용자가 명시적으로 확인한 마지막 분석 기준선 및 앱 설정은 기기 저장소에서 처리하며 광고 요청에도 넣지 않습니다.</li>
         <li><strong>계정, 자체 분석·크래시 수집 도구가 없습니다.</strong> 회사 서버에 계산 데이터의 복구용 사본도 만들지 않습니다.</li>
         <li><strong>NAP MX 연결은 선택 사항입니다.</strong> 이용자가 자신의 Report API Key를 입력한 경우에만 NAP MX 공식 HTTPS API로 조회합니다. 키는 Android Keystore 또는 iOS Keychain으로 보호하고 회사 서버에는 보내지 않습니다. 조회한 광고 요청·노출·클릭·수익 데이터는 가져오기 미리보기를 거쳐 사용자가 승인한 항목만 기기에 저장합니다.</li>
         <li><strong>공유·문의는 사용자가 선택한 외부 앱으로 전달됩니다.</strong> 공유 파일·문구와 문의 내용은 운영체제 공유 기능 및 선택한 메일·메신저 등의 정책을 따릅니다. 회사는 이용자가 문의로 직접 보낸 내용만 수신합니다.</li>
@@ -47,7 +47,7 @@
       <p>문의 및 권리 행사: <a href="mailto:security@nasmedia.co.kr">security@nasmedia.co.kr</a></p>
     </section>
 
-    <section class="card" aria-labelledby="english-summary"><h2 id="english-summary">English summary</h2><p>Personal data handling is governed by the <a href="https://www.nasmedia.co.kr/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EB%B0%A9%EC%B9%A8/">Nasmedia privacy policy</a>. Simulation inputs, scenarios and settings remain in device storage and are not sent to a company server or included in ad requests. Optional NAP MX connection uses the user's own Report API Key, protected by Android Keystore or iOS Keychain, to query the official HTTPS API. Report data is shown in a preview and stored locally only after confirmation. Disconnecting deletes the credential; imported records remain unless separately deleted. The nap mx/AdMixer ad system may process an advertising identifier, device/network data and ad events. There is no account and no first-party analytics or crash-reporting SDK. Contact: <a href="mailto:security@nasmedia.co.kr">security@nasmedia.co.kr</a>.</p></section>
+    <section class="card" aria-labelledby="english-summary"><h2 id="english-summary">English summary</h2><p>Personal data handling is governed by the <a href="https://www.nasmedia.co.kr/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EB%B0%A9%EC%B9%A8/">Nasmedia privacy policy</a>. Simulation inputs, actual-performance records, goals, scenarios, improvement Actions, weekly-review state, the user-confirmed last-analysis baseline and settings remain in device storage and are not sent to a company server or included in ad requests. Optional NAP MX connection uses the user's own Report API Key, protected by Android Keystore or iOS Keychain, to query the official HTTPS API. Report data is shown in a preview and stored locally only after confirmation. Disconnecting deletes the credential; imported records remain unless separately deleted. The nap mx/AdMixer ad system may process an advertising identifier, device/network data and ad events. There is no account and no first-party analytics or crash-reporting SDK. Contact: <a href="mailto:security@nasmedia.co.kr">security@nasmedia.co.kr</a>.</p></section>
   </main>
   <footer class="site-footer">© 2026 Nasmedia Co., Ltd. · <a href="../terms-of-service/">서비스 이용약관</a> · <a href="../support/">고객지원</a></footer>
 </body>

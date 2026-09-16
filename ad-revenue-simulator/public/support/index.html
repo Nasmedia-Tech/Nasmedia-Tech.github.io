@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="AdRevenue Lab 1.0.3 사용법, NAP MX 연결, 데이터 삭제, 광고, 업데이트, CSV 공유 및 문의 안내입니다.">
+  <meta name="description" content="AdRevenue Lab 1.0.4 사용법, NAP MX 연결, 데이터 삭제, 광고, 업데이트, CSV 공유 및 문의 안내입니다.">
   <title>고객지원 | AdRevenue Lab</title>
   <link rel="stylesheet" href="../legal.css">
 </head>

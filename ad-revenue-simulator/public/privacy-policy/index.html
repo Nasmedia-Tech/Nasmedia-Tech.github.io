@@ -14,7 +14,7 @@
     <section class="hero" aria-labelledby="page-title">
       <p class="eyebrow">PRIVACY</p><h1 id="page-title">개인정보 처리방침</h1>
       <p class="lead">개인정보 처리의 기준은 <strong>케이티나스미디어 개인정보 처리방침</strong>입니다. 이 페이지는 그 방침을 대체하지 않고, AdRevenue Lab의 실제 데이터 흐름과 사용자 선택권을 앱 단위로 설명합니다.</p>
-      <p class="meta">시행일·최종 개정일: 2026년 9월 12일 · AdRevenue Lab (<code>kr.co.nasmedia.napyield</code>) · 주식회사 케이티나스미디어</p>
+      <p class="meta">시행일·최종 개정일: 2026년 9월 16일 · AdRevenue Lab (<code>kr.co.nasmedia.napyield</code>) · 주식회사 케이티나스미디어</p>
     </section>
 
     <aside class="notice" aria-label="기준 방침"><strong>기준 방침.</strong> 처리 목적과 법적 근거, 보유·파기, 안전성 확보조치, 정보주체의 권리 행사와 거부 방법, 고충 처리와 구제 절차는 모두 <a href="https://www.nasmedia.co.kr/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EB%B0%A9%EC%B9%A8/">케이티나스미디어 개인정보 처리방침</a>을 따릅니다. 광고 데이터는 그중 <strong>제8장(행태정보의 수집·이용 및 거부)</strong>이 기준입니다.</aside>
@@ -30,11 +30,11 @@
 
     <section aria-labelledby="communications"><h2 id="communications">광고와 스토어 업데이트 통신</h2>
       <ul>
-        <li><strong>광고:</strong> Android 광고 ID, iOS는 추적 허용 시 IDFA와 함께 IP 주소, 기기 모델, OS·앱 버전, 언어·네트워크 정보, 광고 요청·노출·클릭·리워드 기록이 nap mx/AdMixer 광고 시스템에서 처리될 수 있습니다. 추적을 거부해도 계산·저장·공유 기능은 그대로 사용할 수 있습니다.</li>
+        <li><strong>광고:</strong> Android 광고 ID, iOS는 추적 허용 시 IDFA와 함께 IP 주소, 기기 모델, OS·앱 버전, 언어·네트워크 정보, 광고 요청·노출·클릭·리워드 기록이 nap mx/AdMixer 광고 시스템에서 처리될 수 있습니다. Android 광고 워터폴에는 Google Ad Manager와 Pangle SDK가 포함될 수 있으며, 광고 제공·측정·빈도 제한·부정 이용 방지를 위해 기기 식별자, 대략적 위치로 추정될 수 있는 IP 주소, 앱 상호작용 및 진단 정보를 처리할 수 있습니다. 추적을 거부해도 계산·저장·공유 기능은 그대로 사용할 수 있습니다.</li>
         <li><strong>Android 업데이트:</strong> Google Play 인앱 업데이트 기능이 Play 스토어와 통신합니다. <a href="https://developer.android.com/guide/playcore/in-app-updates">Google 공식 문서</a>에 따르면 업데이트 제공을 위해 기기 메타데이터, 앱 버전, 설치된 모듈·애셋 목록을 처리하며, 전송 중 암호화되고 고정된 보유기간 후 삭제됩니다. 회사의 별도 업데이트 서버로 보내지 않습니다.</li>
         <li><strong>iOS 업데이트:</strong> 사용자가 설정 화면을 열면 Apple 조회 API에 앱 Bundle ID와 국가 코드(<code>kr</code>)로 새 버전을 확인합니다. 현재 앱 버전과의 비교는 기기에서 수행하고 회사 서버에는 저장하지 않습니다.</li>
       </ul>
-      <p>Android 앱 권한은 인터넷, 네트워크 상태, 광고 ID입니다. 광고 사업자의 실제 처리 항목·보유·제공은 회사의 개인정보 처리방침과 해당 사업자의 정책 및 운영 설정을 함께 따릅니다.</p>
+      <p>Android 앱에는 인터넷·네트워크 상태·광고 ID·광고 측정/주제 API와 광고 SDK 작업을 위한 Wake Lock·Foreground Service 권한이 병합됩니다. 광고 사업자의 실제 처리 항목·보유·제공은 회사의 개인정보 처리방침과 해당 사업자의 정책 및 운영 설정을 함께 따릅니다.</p>
     </section>
 
     <section aria-labelledby="choices"><h2 id="choices">삭제와 선택권</h2>

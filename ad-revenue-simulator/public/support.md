@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="AdRevenue Lab 1.0.7 사용법, NAP MX 연결, 데이터 삭제, 광고, 업데이트, CSV 공유 및 문의 안내입니다.">
+  <meta name="description" content="AdRevenue Lab 1.0.8 사용법, NAP MX 연결, 데이터 삭제, 광고, 업데이트, CSV 공유 및 문의 안내입니다.">
   <title>고객지원 | AdRevenue Lab</title>
   <link rel="stylesheet" href="../legal.css">
 </head>
@@ -14,7 +14,7 @@
     <section class="hero" aria-labelledby="page-title">
       <p class="eyebrow">SUPPORT</p><h1 id="page-title">AdRevenue Lab 고객지원</h1>
       <p class="lead">계산·목표·분석·시나리오·광고·공유 기능을 안전하게 사용하는 방법과 문제 해결 순서를 안내합니다.</p>
-      <p class="meta">앱 버전 1.0.7 · Android/iOS · 최종 업데이트 2026년 9월 19일</p>
+      <p class="meta">앱 버전 1.0.8 · Android/iOS · 최종 업데이트 2026년 9월 22일</p>
       <div class="summary-grid" aria-label="지원 핵심 안내"><div class="summary-item"><strong>예상치 계산</strong><p>입력한 가정에 따른 시뮬레이션이며 수익을 보장하지 않습니다.</p></div><div class="summary-item"><strong>로컬 저장</strong><p>계산값과 시나리오는 기기에서 직접 초기화할 수 있습니다.</p></div><div class="summary-item"><strong>광고 선택권</strong><p>리워드 광고는 선택 사항이며 핵심 기능을 잠그지 않습니다.</p></div></div>
     </section>
 

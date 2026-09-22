@@ -75,8 +75,15 @@
 .nm-feat-list{list-style:none;margin:1.05rem 0 0;padding:0;display:grid;gap:.5rem;}
 .nm-feat-list li{display:flex;gap:.5rem;font-size:.87rem;color:var(--nm-text);line-height:1.5;}
 .nm-feat-list li::before{content:"";flex-shrink:0;width:5px;height:5px;margin-top:.55rem;border-radius:50%;background:var(--nm-red);}
-.nm-card-cta{margin:1.3rem 1.4rem 1.4rem;display:flex;gap:.6rem;flex-wrap:wrap;}
-.nm-card-cta a{font-size:.86rem;padding:.7rem 1.05rem;}
+.nm-card-cta{margin:1.3rem 1.4rem 1.4rem;display:flex;flex-direction:column;align-items:flex-start;gap:.7rem;}
+.nm-card-cta .nm-btn{font-size:.86rem;padding:.7rem 1.05rem;}
+.nm-store-row{display:flex;gap:.6rem;flex-wrap:wrap;}
+.nm-store-link{display:inline-flex;border-radius:8px;transition:transform .2s ease,opacity .2s ease;}
+.nm-store-link:hover{transform:translateY(-2px);opacity:.85;}
+.nm-store-badge{display:block;height:40px;width:auto;border-radius:8px;}
+.nm-more-link{font-size:.82rem;font-weight:700;color:var(--nm-muted);}
+.nm-more-link:hover{color:var(--nm-red);}
+.nm-card-links{display:flex;gap:1rem;flex-wrap:wrap;}
 /* visuals inside cards */
 .nm-visual{margin:1.15rem 1.4rem 0;border-radius:.85rem;overflow:hidden;border:1px solid var(--nm-line);}
 .nm-code{background:#0d1117;color:#e6edf3;font-family:var(--nm-mono);font-size:.72rem;line-height:1.65;}
@@ -211,10 +218,10 @@
 <div class="nm-phone-row">NAP MX 연동<b>선택</b></div>
 <span class="nm-phone-pill">NAP MX Report API</span>
 </div></div></div>
-<div class="nm-card-cta"><a class="nm-btn nm-btn-dark" href="ad-revenue-simulator/public/support/">지원 페이지 →</a><a class="nm-btn nm-btn-dark" href="ad-revenue-simulator/public/privacy-policy/">개인정보</a></div>
+<div class="nm-card-cta"><div class="nm-store-row"><a class="nm-store-link" href="https://play.google.com/store/apps/details?id=kr.co.nasmedia.napyield" target="_blank" rel="noopener"><img class="nm-store-badge" src="https://play.google.com/intl/en_us/badges/static/images/badges/ko_badge_web_generic.png" alt="Google Play에서 다운로드" loading="lazy"></a><a class="nm-store-link" href="https://apps.apple.com/kr/app/adrevenue-lab-%EA%B4%91%EA%B3%A0%EC%88%98%EC%9D%B5-%EA%B3%84%EC%82%B0%EA%B8%B0/id6808604544" target="_blank" rel="noopener"><img class="nm-store-badge" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ko-kr?size=250x83" alt="App Store에서 다운로드" loading="lazy"></a></div><div class="nm-card-links"><a class="nm-more-link" href="ad-revenue-simulator/public/support/">지원 페이지 →</a><a class="nm-more-link" href="ad-revenue-simulator/public/privacy-policy/">개인정보</a></div></div>
 </article>
 <article class="nm-card">
-<div class="nm-card-head"><div class="nm-card-tags"><span class="nm-tag nm-tag-app">APP</span><span class="nm-tag nm-tag-os">Android</span></div></div>
+<div class="nm-card-head"><div class="nm-card-tags"><span class="nm-tag nm-tag-app">APP</span><span class="nm-tag nm-tag-os">Android · iOS</span></div></div>
 <div class="nm-card-body">
 <h3>바이오리듬 with Buddy</h3>
 <p class="nm-desc">AdMixer 광고 네트워크로 운영되는 라이프스타일 앱입니다. NAP MX 미디에이션 기술이 실서비스에서 광고를 노출합니다.</p>
@@ -232,7 +239,7 @@
 <div class="nm-phone-row">무료 포인트<b>오퍼월</b></div>
 <span class="nm-phone-pill">AdMixer 광고</span>
 </div></div></div>
-<div class="nm-card-cta"><a class="nm-btn nm-btn-dark" href="biorhythm/privacy-policy/">개인정보 처리방침 →</a></div>
+<div class="nm-card-cta"><div class="nm-store-row"><a class="nm-store-link" href="https://play.google.com/store/apps/details?id=kr.co.nasmedia.biorhythm" target="_blank" rel="noopener"><img class="nm-store-badge" src="https://play.google.com/intl/en_us/badges/static/images/badges/ko_badge_web_generic.png" alt="Google Play에서 다운로드" loading="lazy"></a><a class="nm-store-link" href="https://apps.apple.com/kr/app/%ED%95%A8%EA%BB%98%ED%95%98%EB%8A%94-%EB%B0%94%EC%9D%B4%EC%98%A4%EB%A6%AC%EB%93%AC-biorhythm/id6781490818" target="_blank" rel="noopener"><img class="nm-store-badge" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ko-kr?size=250x83" alt="App Store에서 다운로드" loading="lazy"></a></div><div class="nm-card-links"><a class="nm-more-link" href="biorhythm/privacy-policy/">개인정보 처리방침 →</a></div></div>
 </article>
 </div>
 </div>
